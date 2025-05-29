@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados Comparativos - Pesquisa Longitudinal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Pesquisa Longitudinal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre a Pesquisa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_inicial.html">Formulário Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_final.html">Formulário Final</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Área Administrativa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container my-4">
+        <div class="row hero-section">
+            <div class="col-md-12 text-center">
+                <h1 class="display-5 fw-bold">Resultados Comparativos</h1>
+                <p class="lead">Análise da sua evolução ao longo do curso</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success">
+                    <h4 class="alert-heading">Parabéns por concluir o curso!</h4>
+                    <p>Seu formulário final foi enviado com sucesso. Abaixo está a comparação entre seus resultados no início e no final do curso de Psicologia.</p>
+                </div>
+
+                <!-- Comparação de Propósito e Expectativas -->
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="card-title mb-0">Evolução de Propósito e Expectativas</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-header bg-light">
+                                        <h5 class="card-title mb-0">No início do curso</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6>Área de interesse inicial:</h6>
+                                        <p id="area-interesse-inicial">Carregando...</p>
+                                        
+                                        <h6>Principal propósito inicial:</h6>
+                                        <p id="proposito-inicial">Carregando...</p>
+                                        
+                                        <h6>Expectativas sobre o curso:</h6>
+                                        <p id="expectativa-curso-inicial">Carregando...</p>
+                                        
+                                        <h6>Expectativas sobre a carreira:</h6>
+                                        <p id="expectativa-carreira-inicial">Carregando...</p>
+                                        
+                                        <h6>Desafios previstos:</h6>
+                                        <p id="desafios-inicial">Carregando...</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card h-100">
+                                    <div class="card-header bg-light">
+                                        <h5 class="card-title mb-0">No final do curso</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6>Área de interesse atual:</h6>
+                                        <p id="area-interesse-final">Carregando...</p>
+                                        
+                                        <h6>Principal propósito atual:</h6>
+                                        <p id="proposito-atual">Carregando...</p>
+                                        
+                                        <h6>Como as expectativas foram atendidas:</h6>
+                                        <p id="expectativas-atendidas">Carregando...</p>
+                                        
+                                        <h6>Justificativa:</h6>
+                                        <p id="justificativa-expectativas">Carregando...</p>
+                                        
+                                        <h6>Desafios enfrentados:</h6>
+                                        <p id="desafios-enfrentados">Carregando...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header bg-light">
+                                        <h5 class="card-title mb-0">Reflexão sobre mudanças</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <h6>Como seu interesse por áreas da Psicologia mudou:</h6>
+                                        <p id="mudanca-interesse">Carregando...</p>
+                                        
+                                        <h6>Como seu propósito mudou:</h6>
+                                        <p id="mudanca-proposito">Carregando...</p>
+                                        
+                                        <h6>Como você lidou com os desafios:</h6>
+                                        <p id="superacao-desafios">Carregando...</p>
+                                        
+                                        <h6>Planos imediatos após a formatura:</h6>
+                                        <p id="planos-pos-formatura">Carregando...</p>
+                                        
+                                        <h6>Planos para os próximos cinco anos:</h6>
+                                        <p id="detalhamento-planos">Carregando...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comparação de Personalidade -->
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="card-title mb-0">Evolução dos Traços de Personalidade</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>O gráfico abaixo mostra a comparação entre seus traços de personalidade no início e no final do curso, medidos pelo TIPI (Ten-Item Personality Inventory).</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-8 mx-auto">
+                                <canvas id="personalityComparisonChart" width="600" height="400"></canvas>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <h4 class="text-center mb-4">Detalhamento das Mudanças</h4>
+                                
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Traço de Personalidade</th>
+                                                <th>Início do Curso</th>
+                                                <th>Final do Curso</th>
+                                                <th>Diferença</th>
+                                                <th>Interpretação</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Extroversão</td>
+                                                <td id="extroversao-inicial">-</td>
+                                                <td id="extroversao-final">-</td>
+                                                <td id="extroversao-diff">-</td>
+                                                <td id="extroversao-interp">Carregando...</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Amabilidade</td>
+                                                <td id="amabilidade-inicial">-</td>
+                                                <td id="amabilidade-final">-</td>
+                                                <td id="amabilidade-diff">-</td>
+                                                <td id="amabilidade-interp">Carregando...</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Conscienciosidade</td>
+                                                <td id="conscienciosidade-inicial">-</td>
+                                                <td id="conscienciosidade-final">-</td>
+                                                <td id="conscienciosidade-diff">-</td>
+                                                <td id="conscienciosidade-interp">Carregando...</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Estabilidade Emocional</td>
+                                                <td id="estabilidade-inicial">-</td>
+                                                <td id="estabilidade-final">-</td>
+                                                <td id="estabilidade-diff">-</td>
+                                                <td id="estabilidade-interp">Carregando...</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Abertura a Experiências</td>
+                                                <td id="abertura-inicial">-</td>
+                                                <td id="abertura-final">-</td>
+                                                <td id="abertura-diff">-</td>
+                                                <td id="abertura-interp">Carregando...</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Considerações Finais -->
+                <div class="card mb-4">
+                    <div class="card-header bg-secondary text-white">
+                        <h3 class="card-title mb-0">Considerações Finais</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>A comparação entre os resultados do início e do final do curso pode revelar mudanças interessantes em seus traços de personalidade e em sua visão sobre a Psicologia e sua carreira profissional.</p>
+                        
+                        <p>É importante lembrar que:</p>
+                        <ul>
+                            <li>Mudanças nos traços de personalidade são normais e podem refletir seu desenvolvimento pessoal e profissional ao longo do curso.</li>
+                            <li>A formação em Psicologia frequentemente promove autoconhecimento e pode influenciar a forma como você se percebe.</li>
+                            <li>Mudanças nas áreas de interesse e propósito profissional são comuns à medida que você é exposto a diferentes campos da Psicologia.</li>
+                            <li>Não existem trajetórias "certas" ou "erradas" - cada percurso é único e valioso.</li>
+                        </ul>
+                        
+                        <div class="alert alert-info mt-3">
+                            <p class="mb-0">Estes resultados são confidenciais e fazem parte da pesquisa longitudinal do curso de Psicologia. Agradecemos sua participação neste estudo, que contribuirá para uma melhor compreensão do desenvolvimento dos estudantes ao longo da graduação.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 col-md-6 mx-auto my-5">
+                    <a href="index.html" class="btn btn-primary btn-lg">Voltar para a Página Inicial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Pesquisa Longitudinal - Curso de Psicologia</h5>
+                    <p>Faculdade Anhanguera de Feira de Santana</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Contato</h5>
+                    <p>Em caso de dúvidas, entre em contato com a coordenação do curso</p>
+                    <p>Email: coordenacao.psicologia@anhanguera.com</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2025 Faculdade Anhanguera de Feira de Santana. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obter parâmetros da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const codigo = urlParams.get('codigo');
+            
+            if (!codigo) {
+                alert('Código não encontrado. Redirecionando para a página inicial.');
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Buscar dados dos formulários
+            Promise.all([
+                fetch(`/api/formulario/${codigo}/inicial`).then(res => res.json()).catch(() => ({ success: false })),
+                fetch(`/api/formulario/${codigo}/final`).then(res => res.json()).catch(() => ({ success: false }))
+            ])
+            .then(([dataInicial, dataFinal]) => {
+                if (dataInicial.success && dataFinal.success) {
+                    displayResults(dataInicial.formulario, dataFinal.formulario);
+                } else {
+                    // Para fins de demonstração, usar dados simulados quando não há servidor
+                    const mockDataInicial = {
+                        area_interesse: "Psicologia Clínica",
+                        proposito: "Ajudar pessoas a superarem traumas e dificuldades emocionais.",
+                        expectativa_curso: "Aprender técnicas terapêuticas e compreender melhor o comportamento humano.",
+                        expectativa_carreira: "Abrir um consultório e trabalhar com terapia individual.",
+                        desafios: "Conciliar estudos com trabalho e vida pessoal.",
+                        extroversao: 4.0,
+                        amabilidade: 5.5,
+                        conscienciosidade: 5.0,
+                        estabilidade_emocional: 4.0,
+                        abertura: 5.5
+                    };
+                    
+                    const mockDataFinal = {
+                        area_interesse_atual: "Neuropsicologia",
+                        proposito_atual: "Trabalhar com reabilitação cognitiva e avaliação neuropsicológica.",
+                        expectativas_atendidas: "Parcialmente atendidas",
+                        justificativa_expectativas: "O curso ofereceu boa base teórica, mas senti falta de mais prática clínica.",
+                        desafios_enfrentados: "Carga horária intensa, estágios exigentes e pressão para definir área de atuação.",
+                        superacao_desafios: "Organizei melhor meu tempo e busquei supervisão extra.",
+                        mudanca_interesse: "Descobri a neuropsicologia durante uma disciplina no 6º semestre e me apaixonei pela área.",
+                        mudanca_proposito: "Meu foco mudou da clínica geral para a especialização em neuropsicologia.",
+                        planos_pos_formatura: "Fazer pós-graduação",
+                        detalhamento_planos: "Fazer especialização em neuropsicologia, trabalhar em hospital e eventualmente abrir consultório.",
+                        extroversao: 4.5,
+                        amabilidade: 6.0,
+                        conscienciosidade: 6.5,
+                        estabilidade_emocional: 5.0,
+                        abertura: 6.0
+                    };
+                    
+                    displayResults(mockDataInicial, mockDataFinal);
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Ocorreu um erro ao carregar os resultados. Por favor, tente novamente.');
+            });
+            
+            function displayResults(dataInicial, dataFinal) {
+                // Preencher dados de propósito e expectativas
+                document.getElementById('area-interesse-inicial').textContent = dataInicial.area_interesse || "Não informado";
+                document.getElementById('proposito-inicial').textContent = dataInicial.proposito || "Não informado";
+                document.getElementById('expectativa-curso-inicial').textContent = dataInicial.expectativa_curso || "Não informado";
+                document.getElementById('expectativa-carreira-inicial').textContent = dataInicial.expectativa_carreira || "Não informado";
+                document.getElementById('desafios-inicial').textContent = dataInicial.desafios || "Não informado";
+                
+                document.getElementById('area-interesse-final').textContent = dataFinal.area_interesse_atual || "Não informado";
+                document.getElementById('proposito-atual').textContent = dataFinal.proposito_atual || "Não informado";
+                document.getElementById('expectativas-atendidas').textContent = dataFinal.expectativas_atendidas || "Não informado";
+                document.getElementById('justificativa-expectativas').textContent = dataFinal.justificativa_expectativas || "Não informado";
+                document.getElementById('desafios-enfrentados').textContent = dataFinal.desafios_enfrentados || "Não informado";
+                
+                document.getElementById('mudanca-interesse').textContent = dataFinal.mudanca_interesse || "Não informado";
+                document.getElementById('mudanca-proposito').textContent = dataFinal.mudanca_proposito || "Não informado";
+                document.getElementById('superacao-desafios').textContent = dataFinal.superacao_desafios || "Não informado";
+                document.getElementById('planos-pos-formatura').textContent = dataFinal.planos_pos_formatura || "Não informado";
+                document.getElementById('detalhamento-planos').textContent = dataFinal.detalhamento_planos || "Não informado";
+                
+                // Preencher tabela de comparação TIPI
+                document.getElementById('extroversao-inicial').textContent = dataInicial.extroversao.toFixed(1);
+                document.getElementById('extroversao-final').textContent = dataFinal.extroversao.toFixed(1);
+                document.getElementById('amabilidade-inicial').textContent = dataInicial.amabilidade.toFixed(1);
+                document.getElementById('amabilidade-final').textContent = dataFinal.amabilidade.toFixed(1);
+                document.getElementById('conscienciosidade-inicial').textContent = dataInicial.conscienciosidade.toFixed(1);
+                document.getElementById('conscienciosidade-final').textContent = dataFinal.conscienciosidade.toFixed(1);
+                document.getElementById('estabilidade-inicial').textContent = dataInicial.estabilidade_emocional.toFixed(1);
+                document.getElementById('estabilidade-final').textContent = dataFinal.estabilidade_emocional.toFixed(1);
+                document.getElementById('abertura-inicial').textContent = dataInicial.abertura.toFixed(1);
+                document.getElementById('abertura-final').textContent = dataFinal.abertura.toFixed(1);
+                
+                // Calcular e preencher diferenças
+                const extroversaoDiff = (dataFinal.extroversao - dataInicial.extroversao).toFixed(1);
+                const amabilidadeDiff = (dataFinal.amabilidade - dataInicial.amabilidade).toFixed(1);
+                const conscienciosidadeDiff = (dataFinal.conscienciosidade - dataInicial.conscienciosidade).toFixed(1);
+                const estabilidadeDiff = (dataFinal.estabilidade_emocional - dataInicial.estabilidade_emocional).toFixed(1);
+                const aberturaDiff = (dataFinal.abertura - dataInicial.abertura).toFixed(1);
+                
+                document.getElementById('extroversao-diff').textContent = formatDiff(extroversaoDiff);
+                document.getElementById('amabilidade-diff').textContent = formatDiff(amabilidadeDiff);
+                document.getElementById('conscienciosidade-diff').textContent = formatDiff(conscienciosidadeDiff);
+                document.getElementById('estabilidade-diff').textContent = formatDiff(estabilidadeDiff);
+                document.getElementById('abertura-diff').textContent = formatDiff(aberturaDiff);
+                
+                // Preencher interpretações
+                document.getElementById('extroversao-interp').textContent = getInterpretation(parseFloat(extroversaoDiff));
+                document.getElementById('amabilidade-interp').textContent = getInterpretation(parseFloat(amabilidadeDiff));
+                document.getElementById('conscienciosidade-interp').textContent = getInterpretation(parseFloat(conscienciosidadeDiff));
+                document.getElementById('estabilidade-interp').textContent = getInterpretation(parseFloat(estabilidadeDiff));
+                document.getElementById('abertura-interp').textContent = getInterpretation(parseFloat(aberturaDiff));
+                
+                // Criar gráfico
+                createComparisonChart(dataInicial, dataFinal);
+            }
+            
+            function formatDiff(diff) {
+                const num = parseFloat(diff);
+                if (num > 0) {
+                    return `+${diff}`;
+                } else {
+                    return diff;
+                }
+            }
+            
+            function getInterpretation(diff) {
+                if (Math.abs(diff) < 0.5) {
+                    return "Estabilidade neste traço";
+                } else if (diff > 0) {
+                    return "Aumento significativo";
+                } else {
+                    return "Diminuição significativa";
+                }
+            }
+            
+            function createComparisonChart(dataInicial, dataFinal) {
+                const ctx = document.getElementById('personalityComparisonChart').getContext('2d');
+                
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'Extroversão',
+                            'Amabilidade',
+                            'Conscienciosidade',
+                            'Estabilidade Emocional',
+                            'Abertura a Experiências'
+                        ],
+                        datasets: [
+                            {
+                                label: 'Início do Curso',
+                                data: [
+                                    dataInicial.extroversao,
+                                    dataInicial.amabilidade,
+                                    dataInicial.conscienciosidade,
+                                    dataInicial.estabilidade_emocional,
+                                    dataInicial.abertura
+                                ],
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                                pointBorderColor: '#fff'
+                            },
+                            {
+                                label: 'Final do Curso',
+                                data: [
+                                    dataFinal.extroversao,
+                                    dataFinal.amabilidade,
+                                    dataFinal.conscienciosidade,
+                                    dataFinal.estabilidade_emocional,
+                                    dataFinal.abertura
+                                ],
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                pointBackgroundColor: 'rgba(255, 99, 132, 1)',
+                                pointBorderColor: '#fff'
+                            }
+                        ]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true
+                                },
+                                suggestedMin: 1,
+                                suggestedMax: 7
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

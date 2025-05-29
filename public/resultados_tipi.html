@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados TIPI - Pesquisa Longitudinal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Pesquisa Longitudinal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre a Pesquisa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_inicial.html">Formulário Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_final.html">Formulário Final</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Área Administrativa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container my-4">
+        <div class="row hero-section">
+            <div class="col-md-12 text-center">
+                <h1 class="display-5 fw-bold">Resultados do TIPI</h1>
+                <p class="lead">Inventário de Personalidade de Dez Itens</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success">
+                    <h4 class="alert-heading">Obrigado por participar!</h4>
+                    <p>Seu formulário foi enviado com sucesso. Abaixo estão os resultados do seu Inventário de Personalidade TIPI.</p>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="card-title mb-0">Seu Perfil de Personalidade</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>O TIPI (Ten-Item Personality Inventory) é baseado no modelo dos Cinco Grandes Fatores de personalidade, também conhecido como Big Five. Este modelo é amplamente aceito na psicologia como uma forma de descrever as dimensões básicas da personalidade humana.</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <canvas id="personalityChart" width="400" height="400"></canvas>
+                            </div>
+                            <div class="col-md-6">
+                                <div id="results-container">
+                                    <div class="trait-result mb-3">
+                                        <h5>Extroversão: <span id="extroversao-score">-</span>/7</h5>
+                                        <div class="progress">
+                                            <div id="extroversao-bar" class="progress-bar bg-primary" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <p id="extroversao-desc" class="text-muted mt-1">Carregando descrição...</p>
+                                    </div>
+                                    
+                                    <div class="trait-result mb-3">
+                                        <h5>Amabilidade: <span id="amabilidade-score">-</span>/7</h5>
+                                        <div class="progress">
+                                            <div id="amabilidade-bar" class="progress-bar bg-success" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <p id="amabilidade-desc" class="text-muted mt-1">Carregando descrição...</p>
+                                    </div>
+                                    
+                                    <div class="trait-result mb-3">
+                                        <h5>Conscienciosidade: <span id="conscienciosidade-score">-</span>/7</h5>
+                                        <div class="progress">
+                                            <div id="conscienciosidade-bar" class="progress-bar bg-info" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <p id="conscienciosidade-desc" class="text-muted mt-1">Carregando descrição...</p>
+                                    </div>
+                                    
+                                    <div class="trait-result mb-3">
+                                        <h5>Estabilidade Emocional: <span id="estabilidade-score">-</span>/7</h5>
+                                        <div class="progress">
+                                            <div id="estabilidade-bar" class="progress-bar bg-warning" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <p id="estabilidade-desc" class="text-muted mt-1">Carregando descrição...</p>
+                                    </div>
+                                    
+                                    <div class="trait-result mb-3">
+                                        <h5>Abertura a Experiências: <span id="abertura-score">-</span>/7</h5>
+                                        <div class="progress">
+                                            <div id="abertura-bar" class="progress-bar bg-danger" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <p id="abertura-desc" class="text-muted mt-1">Carregando descrição...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="card-title mb-0">Interpretação dos Resultados</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>O modelo dos Cinco Grandes Fatores é uma das teorias mais robustas e validadas na psicologia da personalidade. Cada dimensão representa um continuum, e não há resultados "bons" ou "ruins" - apenas diferentes perfis de personalidade.</p>
+                        
+                        <h5 class="mt-4">Extroversão</h5>
+                        <p>Refere-se à orientação de interesses e energia em direção ao mundo externo de pessoas e coisas (extroversão) ou para o mundo interno de experiências subjetivas (introversão).</p>
+                        <ul>
+                            <li><strong>Pontuação alta:</strong> Sociável, energético, entusiasta, comunicativo, assertivo</li>
+                            <li><strong>Pontuação baixa:</strong> Reservado, reflexivo, quieto, prefere ambientes mais calmos</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Amabilidade</h5>
+                        <p>Reflete diferenças individuais em preocupação com cooperação e harmonia social.</p>
+                        <ul>
+                            <li><strong>Pontuação alta:</strong> Cooperativo, empático, confiável, altruísta, gentil</li>
+                            <li><strong>Pontuação baixa:</strong> Competitivo, direto, objetivo, cético, questionador</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Conscienciosidade</h5>
+                        <p>Descreve a tendência a mostrar autodisciplina, agir de forma responsável e buscar realização.</p>
+                        <ul>
+                            <li><strong>Pontuação alta:</strong> Organizado, responsável, confiável, persistente, planejador</li>
+                            <li><strong>Pontuação baixa:</strong> Flexível, espontâneo, adaptável, menos preocupado com ordem</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Estabilidade Emocional</h5>
+                        <p>Refere-se à tendência a experimentar emoções negativas e vulnerabilidade ao estresse.</p>
+                        <ul>
+                            <li><strong>Pontuação alta:</strong> Calmo, resiliente, seguro, menos reativo emocionalmente</li>
+                            <li><strong>Pontuação baixa:</strong> Sensível, emotivo, reativo, pode experimentar mais ansiedade ou preocupação</li>
+                        </ul>
+                        
+                        <h5 class="mt-4">Abertura a Experiências</h5>
+                        <p>Descreve a dimensão de curiosidade intelectual, criatividade e preferência pela novidade e variedade.</p>
+                        <ul>
+                            <li><strong>Pontuação alta:</strong> Curioso, criativo, imaginativo, aprecia novas ideias e experiências</li>
+                            <li><strong>Pontuação baixa:</strong> Prático, convencional, prefere o familiar, valoriza tradições</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card mb-4">
+                    <div class="card-header bg-secondary text-white">
+                        <h3 class="card-title mb-0">Considerações Importantes</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>É importante lembrar que:</p>
+                        <ul>
+                            <li>O TIPI é uma medida breve e simplificada de personalidade, útil para pesquisas, mas não substitui avaliações psicológicas completas.</li>
+                            <li>Não existem traços de personalidade "melhores" ou "piores" - cada perfil tem seus pontos fortes e desafios.</li>
+                            <li>A personalidade é relativamente estável, mas pode apresentar mudanças ao longo do tempo e em diferentes contextos.</li>
+                            <li>Estes resultados são confidenciais e fazem parte da pesquisa longitudinal do curso de Psicologia.</li>
+                        </ul>
+                        
+                        <div class="alert alert-info mt-3">
+                            <p class="mb-0">Se você preencheu o formulário inicial e agora está concluindo o curso, poderá comparar seus resultados ao longo do tempo na página de resultados comparativos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2 col-md-6 mx-auto my-5">
+                    <a href="index.html" class="btn btn-primary btn-lg">Voltar para a Página Inicial</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Pesquisa Longitudinal - Curso de Psicologia</h5>
+                    <p>Faculdade Anhanguera de Feira de Santana</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Contato</h5>
+                    <p>Em caso de dúvidas, entre em contato com a coordenação do curso</p>
+                    <p>Email: coordenacao.psicologia@anhanguera.com</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2025 Faculdade Anhanguera de Feira de Santana. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obter parâmetros da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const codigo = urlParams.get('codigo');
+            const tipo = urlParams.get('tipo');
+            
+            if (!codigo) {
+                alert('Código não encontrado. Redirecionando para a página inicial.');
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Buscar dados do formulário
+            fetch(`/api/formulario/${codigo}/${tipo}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayResults(data.formulario);
+                    } else {
+                        alert('Erro ao carregar os resultados: ' + data.message);
+                        window.location.href = 'index.html';
+                    }
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    
+                    // Para fins de demonstração, usar dados simulados quando não há servidor
+                    const mockData = {
+                        extroversao: 4.5,
+                        amabilidade: 5.2,
+                        conscienciosidade: 6.1,
+                        estabilidade_emocional: 3.8,
+                        abertura: 5.7
+                    };
+                    
+                    displayResults(mockData);
+                });
+            
+            function displayResults(data) {
+                // Atualizar pontuações
+                document.getElementById('extroversao-score').textContent = data.extroversao.toFixed(1);
+                document.getElementById('amabilidade-score').textContent = data.amabilidade.toFixed(1);
+                document.getElementById('conscienciosidade-score').textContent = data.conscienciosidade.toFixed(1);
+                document.getElementById('estabilidade-score').textContent = data.estabilidade_emocional.toFixed(1);
+                document.getElementById('abertura-score').textContent = data.abertura.toFixed(1);
+                
+                // Atualizar barras de progresso
+                document.getElementById('extroversao-bar').style.width = `${(data.extroversao / 7) * 100}%`;
+                document.getElementById('amabilidade-bar').style.width = `${(data.amabilidade / 7) * 100}%`;
+                document.getElementById('conscienciosidade-bar').style.width = `${(data.conscienciosidade / 7) * 100}%`;
+                document.getElementById('estabilidade-bar').style.width = `${(data.estabilidade_emocional / 7) * 100}%`;
+                document.getElementById('abertura-bar').style.width = `${(data.abertura / 7) * 100}%`;
+                
+                // Atualizar descrições
+                updateDescription('extroversao-desc', data.extroversao);
+                updateDescription('amabilidade-desc', data.amabilidade);
+                updateDescription('conscienciosidade-desc', data.conscienciosidade);
+                updateDescription('estabilidade-desc', data.estabilidade_emocional);
+                updateDescription('abertura-desc', data.abertura);
+                
+                // Criar gráfico
+                createChart(data);
+            }
+            
+            function updateDescription(elementId, score) {
+                let description = '';
+                
+                if (score < 3) {
+                    description = 'Pontuação baixa';
+                } else if (score < 5) {
+                    description = 'Pontuação média';
+                } else {
+                    description = 'Pontuação alta';
+                }
+                
+                document.getElementById(elementId).textContent = description;
+            }
+            
+            function createChart(data) {
+                const ctx = document.getElementById('personalityChart').getContext('2d');
+                
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'Extroversão',
+                            'Amabilidade',
+                            'Conscienciosidade',
+                            'Estabilidade Emocional',
+                            'Abertura a Experiências'
+                        ],
+                        datasets: [{
+                            label: 'Seu Perfil',
+                            data: [
+                                data.extroversao,
+                                data.amabilidade,
+                                data.conscienciosidade,
+                                data.estabilidade_emocional,
+                                data.abertura
+                            ],
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                            pointBorderColor: '#fff',
+                            pointHoverBackgroundColor: '#fff',
+                            pointHoverBorderColor: 'rgba(54, 162, 235, 1)'
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true
+                                },
+                                suggestedMin: 1,
+                                suggestedMax: 7
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

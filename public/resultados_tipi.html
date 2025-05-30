@@ -196,7 +196,9 @@
                         return;
                     }
                     
-                    const formData = result.data;
+                    const formData = result.formulario;
+                    console.log('Objeto RESULT completo recebido da API:', result);
+                    console.log('Objeto FORMULÁRIO (formData) que será usado:', formData);
                     
                     // Formatar data
                     const dataPreenchimento = new Date(formData.data_preenchimento);

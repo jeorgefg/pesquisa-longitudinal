@@ -200,6 +200,7 @@
                     
                     // Formatar data
                     const dataPreenchimento = new Date(formData.data_preenchimento);
+                    console.log('Objeto do Formulário Recebido:', formData);
                     document.getElementById('data-preenchimento').textContent = dataPreenchimento.toLocaleDateString('pt-BR');
                     
                     // Calcular escores TIPI

@@ -1,5 +1,3 @@
-// Arquivo principal de scripts para o sistema de pesquisa longitudinal
-
 // Função para salvar dados no localStorage
 function saveFormData(formType, formData) {
     // Obter dados existentes ou inicializar array vazio

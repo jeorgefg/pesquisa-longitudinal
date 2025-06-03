@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados TIPI - Pesquisa Longitudinal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Adicionar jsPDF para geração de PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.28/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Pesquisa Longitudinal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre a Pesquisa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_inicial.html">Formulário Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_final.html">Formulário Final</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Área Administrativa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container my-4">
+        <div class="row hero-section">
+            <div class="col-md-12 text-center">
+                <h1 class="display-5 fw-bold">Resultados do TIPI</h1>
+                <p class="lead">Inventário de Personalidade de Dez Itens</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-4" id="content-to-print">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success">
+                    <h4 class="alert-heading">Obrigado por participar!</h4>
+                    <p>Seu formulário foi enviado com sucesso. Abaixo estão os resultados do seu Inventário de Personalidade TIPI.</p>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="card-title mb-0">Seus Resultados</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4>Código Único: <span id="codigo-display"></span></h4>
+                                <p>Data de preenchimento: <span id="data-preenchimento"></span></p>
+                                <p>Tipo de formulário: <span id="tipo-formulario"></span></p>
+                            </div>
+                            <div class="col-md-6 text-md-end">
+                                <!-- Botão para baixar PDF -->
+                                <button id="download-pdf" class="btn btn-success">
+                                    <i class="bi bi-file-earmark-pdf"></i> Baixar Resultados em PDF
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        
+                        <h4 class="mb-4">Escores do TIPI</h4>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-bordered">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Dimensão</th>
+                                            <th>Escore (1-7)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Extroversão</td>
+                                            <td id="extroversao-score"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Amabilidade</td>
+                                            <td id="amabilidade-score"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Conscienciosidade</td>
+                                            <td id="conscienciosidade-score"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Estabilidade Emocional</td>
+                                            <td id="estabilidade-score"></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Abertura a Experiências</td>
+                                            <td id="abertura-score"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <canvas id="tipi-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="card-title mb-0">Interpretação dos Resultados</h3>
+                    </div>
+                    <div class="card-body">
+                        <div id="interpretacao-container">
+                            <!-- Conteúdo será preenchido via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card mb-4">
+                    <div class="card-header bg-warning">
+                        <h3 class="card-title mb-0">Importante</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>O TIPI (Ten-Item Personality Inventory) é uma medida breve dos cinco grandes traços de personalidade. Por ser uma versão reduzida, os resultados são aproximados e devem ser interpretados com cautela.</p>
+                        
+                        <p>Esta avaliação não substitui uma avaliação psicológica completa realizada por um profissional. Os resultados são apenas para fins educacionais e de autoconhecimento.</p>
+                        
+                        <p>Lembre-se de guardar seu código único (<strong id="codigo-reminder"></strong>) para poder comparar seus resultados ao final do curso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Pesquisa Longitudinal</h5>
+                    <p>Curso de Psicologia<br>Faculdade Anhanguera de Feira de Santana</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Contato: coordenacao.psicologia@anhanguera.com</p>
+                    <p>&copy; 2025 Todos os direitos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Obter parâmetros da URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const codigo = urlParams.get('codigo');
+            const tipo = urlParams.get('tipo');
+            
+            if (!codigo || !tipo) {
+                alert('Parâmetros inválidos. Redirecionando para a página inicial.');
+                window.location.href = 'index.html';
+                return;
+            }
+            
+            // Exibir código
+            document.getElementById('codigo-display').textContent = codigo;
+            document.getElementById('codigo-reminder').textContent = codigo;
+            document.getElementById('tipo-formulario').textContent = tipo === 'inicial' ? 'Inicial (Ingressante)' : 'Final (Concluinte)';
+            
+            // Buscar dados do formulário
+            fetch(`/api/formulario/${codigo}/${tipo}`)
+                .then(response => response.json())
+                .then(result => {
+                    if (!result.success) {
+                        alert('Erro ao buscar dados: ' + result.message);
+                        return;
+                    }
+                    
+                    const formData = result.data;
+                    
+                    // Formatar data
+                    const dataPreenchimento = new Date(formData.data_preenchimento);
+                    document.getElementById('data-preenchimento').textContent = dataPreenchimento.toLocaleDateString('pt-BR');
+                    
+                    // Calcular escores TIPI
+                    const tipiScores = calculateTIPIScores(formData);
+                    
+                    // Exibir escores
+                    document.getElementById('extroversao-score').textContent = tipiScores.extroversao.toFixed(1);
+                    document.getElementById('amabilidade-score').textContent = tipiScores.amabilidade.toFixed(1);
+                    document.getElementById('conscienciosidade-score').textContent = tipiScores.conscienciosidade.toFixed(1);
+                    document.getElementById('estabilidade-score').textContent = tipiScores.estabilidade_emocional.toFixed(1);
+                    document.getElementById('abertura-score').textContent = tipiScores.abertura.toFixed(1);
+                    
+                    // Criar gráfico
+                    createChart(tipiScores);
+                    
+                    // Gerar interpretação
+                    generateInterpretation(tipiScores);
+                    
+                    // Configurar botão de download PDF
+                    setupPdfDownload(formData, tipiScores);
+                })
+                .catch(error => {
+                    console.error('Erro:', error);
+                    alert('Ocorreu um erro ao buscar os dados. Por favor, tente novamente.');
+                });
+        });
+        
+        // Função para criar gráfico
+        function createChart(scores) {
+            const ctx = document.getElementById('tipi-chart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Extroversão', 
+                        'Amabilidade', 
+                        'Conscienciosidade', 
+                        'Estabilidade Emocional', 
+                        'Abertura a Experiências'
+                    ],
+                    datasets: [{
+                        label: 'Seus Escores',
+                        data: [
+                            scores.extroversao,
+                            scores.amabilidade,
+                            scores.conscienciosidade,
+                            scores.estabilidade_emocional,
+                            scores.abertura
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        pointBackgroundColor: 'rgba(54, 162, 235, 1)',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: 'rgba(54, 162, 235, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: {
+                                display: true
+                            },
+                            suggestedMin: 1,
+                            suggestedMax: 7
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Função para gerar interpretação
+        function generateInterpretation(scores) {
+            const container = document.getElementById('interpretacao-container');
+            
+            // Interpretação para Extroversão
+            let extroversaoText = '';
+            if (scores.extroversao >= 5.5) {
+                extroversaoText = 'Você tende a ser muito extrovertido(a), sociável e energético(a). Provavelmente gosta de estar em grupos, é assertivo(a) e gosta de conversar.';
+            } else if (scores.extroversao >= 4) {
+                extroversaoText = 'Você apresenta um nível moderado de extroversão. Consegue ser sociável quando necessário, mas também valoriza momentos de introspecção.';
+            } else {
+                extroversaoText = 'Você tende a ser mais introvertido(a) e reservado(a). Provavelmente prefere atividades solitárias ou com poucas pessoas próximas.';
+            }
+            
+            // Interpretação para Amabilidade
+            let amabilidadeText = '';
+            if (scores.amabilidade >= 5.5) {
+                amabilidadeText = 'Você tende a ser muito amável, cooperativo(a) e preocupado(a) com a harmonia social. Provavelmente é confiável, altruísta e gentil com os outros.';
+            } else if (scores.amabilidade >= 4) {
+                amabilidadeText = 'Você apresenta um nível moderado de amabilidade. Consegue ser cooperativo(a), mas também sabe defender seus interesses quando necessário.';
+            } else {
+                amabilidadeText = 'Você tende a ser mais crítico(a) e competitivo(a) nas relações sociais. Provavelmente é mais cético(a) quanto às intenções dos outros e prioriza seus próprios interesses.';
+            }
+            
+            // Interpretação para Conscienciosidade
+            let conscienciosidadeText = '';
+            if (scores.conscienciosidade >= 5.5) {
+                conscienciosidadeText = 'Você tende a ser muito organizado(a), responsável e autodisciplinado(a). Provavelmente planeja com antecedência, é pontual e orientado(a) para objetivos.';
+            } else if (scores.conscienciosidade >= 4) {
+                conscienciosidadeText = 'Você apresenta um nível moderado de conscienciosidade. Consegue ser organizado(a) quando necessário, mas também é flexível em certas situações.';
+            } else {
+                conscienciosidadeText = 'Você tende a ser mais espontâneo(a) e flexível. Provavelmente prefere não fazer muitos planos e pode ser visto(a) como mais despreocupado(a) ou desorganizado(a).';
+            }
+            
+            // Interpretação para Estabilidade Emocional
+            let estabilidadeText = '';
+            if (scores.estabilidade_emocional >= 5.5) {
+                estabilidadeText = 'Você tende a ser emocionalmente estável e calmo(a). Provavelmente lida bem com o estresse e raramente se sente ansioso(a), irritado(a) ou deprimido(a).';
+            } else if (scores.estabilidade_emocional >= 4) {
+                estabilidadeText = 'Você apresenta um nível moderado de estabilidade emocional. Geralmente é equilibrado(a), mas pode experimentar emoções negativas em situações estressantes.';
+            } else {
+                estabilidadeText = 'Você tende a ser mais sensível emocionalmente e reativo(a) ao estresse. Pode experimentar com mais frequência emoções como ansiedade, irritabilidade ou tristeza.';
+            }
+            
+            // Interpretação para Abertura a Experiências
+            let aberturaText = '';
+            if (scores.abertura >= 5.5) {
+                aberturaText = 'Você tende a ser muito aberto(a) a novas experiências, curioso(a) e criativo(a). Provavelmente aprecia arte, emoção, aventura, ideias incomuns e tem muitos interesses.';
+            } else if (scores.abertura >= 4) {
+                aberturaText = 'Você apresenta um nível moderado de abertura a experiências. Equilibra o interesse por novidades com o apreço por coisas familiares e tradicionais.';
+            } else {
+                aberturaText = 'Você tende a ser mais convencional e prático(a). Provavelmente prefere o familiar ao invés do novo e pode ter interesses mais focados e menos variados.';
+            }
+            
+            // Montar HTML da interpretação
+            container.innerHTML = `
+                <h4>Extroversão: ${scores.extroversao.toFixed(1)}/7</h4>
+                <p>${extroversaoText}</p>
+                <hr>
+                
+                <h4>Amabilidade: ${scores.amabilidade.toFixed(1)}/7</h4>
+                <p>${amabilidadeText}</p>
+                <hr>
+                
+                <h4>Conscienciosidade: ${scores.conscienciosidade.toFixed(1)}/7</h4>
+                <p>${conscienciosidadeText}</p>
+                <hr>
+                
+                <h4>Estabilidade Emocional: ${scores.estabilidade_emocional.toFixed(1)}/7</h4>
+                <p>${estabilidadeText}</p>
+                <hr>
+                
+                <h4>Abertura a Experiências: ${scores.abertura.toFixed(1)}/7</h4>
+                <p>${aberturaText}</p>
+            `;
+        }
+        
+        // Função para configurar download do PDF
+        function setupPdfDownload(formData, tipiScores) {
+            document.getElementById('download-pdf').addEventListener('click', function() {
+                // Inicializar jsPDF
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                // Adicionar título
+                doc.setFontSize(18);
+                doc.text('Resultados do Inventário de Personalidade TIPI', 105, 20, { align: 'center' });
+                
+                // Adicionar informações do participante
+                doc.setFontSize(12);
+                doc.text(`Código Único: ${formData.codigo}`, 20, 40);
+                doc.text(`Data de preenchimento: ${new Date(formData.data_preenchimento).toLocaleDateString('pt-BR')}`, 20, 50);
+                doc.text(`Tipo de formulário: ${formData.tipo_formulario === 'inicial' ? 'Inicial (Ingressante)' : 'Final (Concluinte)'}`, 20, 60);
+                
+                // Adicionar tabela de escores
+                doc.text('Escores do TIPI:', 20, 80);
+                
+                doc.autoTable({
+                    startY: 85,
+                    head: [['Dimensão', 'Escore (1-7)']],
+                    body: [
+                        ['Extroversão', tipiScores.extroversao.toFixed(1)],
+                        ['Amabilidade', tipiScores.amabilidade.toFixed(1)],
+                        ['Conscienciosidade', tipiScores.conscienciosidade.toFixed(1)],
+                        ['Estabilidade Emocional', tipiScores.estabilidade_emocional.toFixed(1)],
+                        ['Abertura a Experiências', tipiScores.abertura.toFixed(1)]
+                    ],
+                });
+                
+                // Adicionar interpretações
+                let yPos = doc.lastAutoTable.finalY + 20;
+                
+                // Interpretação para Extroversão
+                doc.setFontSize(14);
+                doc.text(`Extroversão: ${tipiScores.extroversao.toFixed(1)}/7`, 20, yPos);
+                yPos += 10;
+                
+                doc.setFontSize(12);
+                let extroversaoText = '';
+                if (tipiScores.extroversao >= 5.5) {
+                    extroversaoText = 'Você tende a ser muito extrovertido(a), sociável e energético(a). Provavelmente gosta de estar em grupos, é assertivo(a) e gosta de conversar.';
+                } else if (tipiScores.extroversao >= 4) {
+                    extroversaoText = 'Você apresenta um nível moderado de extroversão. Consegue ser sociável quando necessário, mas também valoriza momentos de introspecção.';
+                } else {
+                    extroversaoText = 'Você tende a ser mais introvertido(a) e reservado(a). Provavelmente prefere atividades solitárias ou com poucas pessoas próximas.';
+                }
+                
+                const splitExtroversao = doc.splitTextToSize(extroversaoText, 170);
+                doc.text(splitExtroversao, 20, yPos);
+                yPos += splitExtroversao.length * 7 + 10;
+                
+                // Verificar se precisa de nova página
+                if (yPos > 250) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+                
+                // Interpretação para Amabilidade
+                doc.setFontSize(14);
+                doc.text(`Amabilidade: ${tipiScores.amabilidade.toFixed(1)}/7`, 20, yPos);
+                yPos += 10;
+                
+                doc.setFontSize(12);
+                let amabilidadeText = '';
+                if (tipiScores.amabilidade >= 5.5) {
+                    amabilidadeText = 'Você tende a ser muito amável, cooperativo(a) e preocupado(a) com a harmonia social. Provavelmente é confiável, altruísta e gentil com os outros.';
+                } else if (tipiScores.amabilidade >= 4) {
+                    amabilidadeText = 'Você apresenta um nível moderado de amabilidade. Consegue ser cooperativo(a), mas também sabe defender seus interesses quando necessário.';
+                } else {
+                    amabilidadeText = 'Você tende a ser mais crítico(a) e competitivo(a) nas relações sociais. Provavelmente é mais cético(a) quanto às intenções dos outros e prioriza seus próprios interesses.';
+                }
+                
+                const splitAmabilidade = doc.splitTextToSize(amabilidadeText, 170);
+                doc.text(splitAmabilidade, 20, yPos);
+                yPos += splitAmabilidade.length * 7 + 10;
+                
+                // Verificar se precisa de nova página
+                if (yPos > 250) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+                
+                // Interpretação para Conscienciosidade
+                doc.setFontSize(14);
+                doc.text(`Conscienciosidade: ${tipiScores.conscienciosidade.toFixed(1)}/7`, 20, yPos);
+                yPos += 10;
+                
+                doc.setFontSize(12);
+                let conscienciosidadeText = '';
+                if (tipiScores.conscienciosidade >= 5.5) {
+                    conscienciosidadeText = 'Você tende a ser muito organizado(a), responsável e autodisciplinado(a). Provavelmente planeja com antecedência, é pontual e orientado(a) para objetivos.';
+                } else if (tipiScores.conscienciosidade >= 4) {
+                    conscienciosidadeText = 'Você apresenta um nível moderado de conscienciosidade. Consegue ser organizado(a) quando necessário, mas também é flexível em certas situações.';
+                } else {
+                    conscienciosidadeText = 'Você tende a ser mais espontâneo(a) e flexível. Provavelmente prefere não fazer muitos planos e pode ser visto(a) como mais despreocupado(a) ou desorganizado(a).';
+                }
+                
+                const splitConscienciosidade = doc.splitTextToSize(conscienciosidadeText, 170);
+                doc.text(splitConscienciosidade, 20, yPos);
+                yPos += splitConscienciosidade.length * 7 + 10;
+                
+                // Verificar se precisa de nova página
+                if (yPos > 250) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+                
+                // Interpretação para Estabilidade Emocional
+                doc.setFontSize(14);
+                doc.text(`Estabilidade Emocional: ${tipiScores.estabilidade_emocional.toFixed(1)}/7`, 20, yPos);
+                yPos += 10;
+                
+                doc.setFontSize(12);
+                let estabilidadeText = '';
+                if (tipiScores.estabilidade_emocional >= 5.5) {
+                    estabilidadeText = 'Você tende a ser emocionalmente estável e calmo(a). Provavelmente lida bem com o estresse e raramente se sente ansioso(a), irritado(a) ou deprimido(a).';
+                } else if (tipiScores.estabilidade_emocional >= 4) {
+                    estabilidadeText = 'Você apresenta um nível moderado de estabilidade emocional. Geralmente é equilibrado(a), mas pode experimentar emoções negativas em situações estressantes.';
+                } else {
+                    estabilidadeText = 'Você tende a ser mais sensível emocionalmente e reativo(a) ao estresse. Pode experimentar com mais frequência emoções como ansiedade, irritabilidade ou tristeza.';
+                }
+                
+                const splitEstabilidade = doc.splitTextToSize(estabilidadeText, 170);
+                doc.text(splitEstabilidade, 20, yPos);
+                yPos += splitEstabilidade.length * 7 + 10;
+                
+                // Verificar se precisa de nova página
+                if (yPos > 250) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+                
+                // Interpretação para Abertura a Experiências
+                doc.setFontSize(14);
+                doc.text(`Abertura a Experiências: ${tipiScores.abertura.toFixed(1)}/7`, 20, yPos);
+                yPos += 10;
+                
+                doc.setFontSize(12);
+                let aberturaText = '';
+                if (tipiScores.abertura >= 5.5) {
+                    aberturaText = 'Você tende a ser muito aberto(a) a novas experiências, curioso(a) e criativo(a). Provavelmente aprecia arte, emoção, aventura, ideias incomuns e tem muitos interesses.';
+                } else if (tipiScores.abertura >= 4) {
+                    aberturaText = 'Você apresenta um nível moderado de abertura a experiências. Equilibra o interesse por novidades com o apreço por coisas familiares e tradicionais.';
+                } else {
+                    aberturaText = 'Você tende a ser mais convencional e prático(a). Provavelmente prefere o familiar ao invés do novo e pode ter interesses mais focados e menos variados.';
+                }
+                
+                const splitAbertura = doc.splitTextToSize(aberturaText, 170);
+                doc.text(splitAbertura, 20, yPos);
+                yPos += splitAbertura.length * 7 + 10;
+                
+                // Adicionar nota final
+                if (yPos > 250) {
+                    doc.addPage();
+                    yPos = 20;
+                }
+                
+                doc.setFontSize(14);
+                doc.text('Importante:', 20, yPos);
+                yPos += 10;
+                
+                doc.setFontSize(12);
+                const notaFinal = 'O TIPI (Ten-Item Personality Inventory) é uma medida breve dos cinco grandes traços de personalidade. Por ser uma versão reduzida, os resultados são aproximados e devem ser interpretados com cautela. Esta avaliação não substitui uma avaliação psicológica completa realizada por um profissional.';
+                
+                const splitNota = doc.splitTextToSize(notaFinal, 170);
+                doc.text(splitNota, 20, yPos);
+                yPos += splitNota.length * 7 + 10;
+                
+                // Adicionar rodapé
+                doc.setFontSize(10);
+                doc.text('Pesquisa Longitudinal - Curso de Psicologia - Faculdade Anhanguera de Feira de Santana', 105, 280, { align: 'center' });
+                
+                // Salvar o PDF
+                doc.save(`Resultados_TIPI_${formData.codigo}.pdf`);
+            });
+        }
+    </script>
+</body>
+</html>

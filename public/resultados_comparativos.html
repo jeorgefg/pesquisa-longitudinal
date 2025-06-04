@@ -6,6 +6,7 @@
     <title>Resultados Comparativos - Pesquisa Longitudinal</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <!-- Navbar -->
@@ -27,7 +28,13 @@
                         <a class="nav-link" href="formulario_inicial.html">Formulário Inicial</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="formulario_intermediario.html">Formulário Intermediário</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="formulario_final.html">Formulário Final</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="resultados_comparativos.html">Resultados Comparativos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="admin.html">Área Administrativa</a>
@@ -42,7 +49,7 @@
         <div class="row hero-section">
             <div class="col-md-12 text-center">
                 <h1 class="display-5 fw-bold">Resultados Comparativos</h1>
-                <p class="lead">Análise da sua evolução ao longo do curso</p>
+                <p class="lead">Visualize sua evolução ao longo do curso</p>
             </div>
         </div>
     </div>
@@ -51,191 +58,376 @@
     <div class="container my-4">
         <div class="row">
             <div class="col-md-12">
-                <div class="alert alert-success">
-                    <h4 class="alert-heading">Parabéns por concluir o curso!</h4>
-                    <p>Seu formulário final foi enviado com sucesso. Abaixo está a comparação entre seus resultados no início e no final do curso de Psicologia.</p>
-                </div>
-
-                <!-- Comparação de Propósito e Expectativas -->
-                <div class="card mb-4">
+                <!-- Código de Acesso -->
+                <div class="form-section card mb-4">
                     <div class="card-header bg-primary text-white">
-                        <h3 class="card-title mb-0">Evolução de Propósito e Expectativas</h3>
+                        <h3 class="card-title mb-0">Acesso aos Resultados</h3>
                     </div>
                     <div class="card-body">
+                        <p>Para visualizar seus resultados comparativos, insira o mesmo código único que você utilizou nos formulários.</p>
+                        
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-header bg-light">
-                                        <h5 class="card-title mb-0">No início do curso</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6>Área de interesse inicial:</h6>
-                                        <p id="area-interesse-inicial">Carregando...</p>
-                                        
-                                        <h6>Principal propósito inicial:</h6>
-                                        <p id="proposito-inicial">Carregando...</p>
-                                        
-                                        <h6>Expectativas sobre o curso:</h6>
-                                        <p id="expectativa-curso-inicial">Carregando...</p>
-                                        
-                                        <h6>Expectativas sobre a carreira:</h6>
-                                        <p id="expectativa-carreira-inicial">Carregando...</p>
-                                        
-                                        <h6>Desafios previstos:</h6>
-                                        <p id="desafios-inicial">Carregando...</p>
-                                    </div>
+                                <div class="mb-3">
+                                    <label for="codigo" class="form-label">Código Único</label>
+                                    <input type="text" class="form-control" id="codigo" placeholder="Insira seu código único">
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card h-100">
-                                    <div class="card-header bg-light">
-                                        <h5 class="card-title mb-0">No final do curso</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6>Área de interesse atual:</h6>
-                                        <p id="area-interesse-final">Carregando...</p>
-                                        
-                                        <h6>Principal propósito atual:</h6>
-                                        <p id="proposito-atual">Carregando...</p>
-                                        
-                                        <h6>Como as expectativas foram atendidas:</h6>
-                                        <p id="expectativas-atendidas">Carregando...</p>
-                                        
-                                        <h6>Justificativa:</h6>
-                                        <p id="justificativa-expectativas">Carregando...</p>
-                                        
-                                        <h6>Desafios enfrentados:</h6>
-                                        <p id="desafios-enfrentados">Carregando...</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="row mt-4">
-                            <div class="col-md-12">
-                                <div class="card">
-                                    <div class="card-header bg-light">
-                                        <h5 class="card-title mb-0">Reflexão sobre mudanças</h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6>Como seu interesse por áreas da Psicologia mudou:</h6>
-                                        <p id="mudanca-interesse">Carregando...</p>
-                                        
-                                        <h6>Como seu propósito mudou:</h6>
-                                        <p id="mudanca-proposito">Carregando...</p>
-                                        
-                                        <h6>Como você lidou com os desafios:</h6>
-                                        <p id="superacao-desafios">Carregando...</p>
-                                        
-                                        <h6>Planos imediatos após a formatura:</h6>
-                                        <p id="planos-pos-formatura">Carregando...</p>
-                                        
-                                        <h6>Planos para os próximos cinco anos:</h6>
-                                        <p id="detalhamento-planos">Carregando...</p>
-                                    </div>
-                                </div>
+                            <div class="col-md-6 d-flex align-items-end">
+                                <button id="btn-buscar" class="btn btn-primary mb-3">Buscar Resultados</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Comparação de Personalidade -->
-                <div class="card mb-4">
-                    <div class="card-header bg-info text-white">
-                        <h3 class="card-title mb-0">Evolução dos Traços de Personalidade</h3>
-                    </div>
-                    <div class="card-body">
-                        <p>O gráfico abaixo mostra a comparação entre seus traços de personalidade no início e no final do curso, medidos pelo TIPI (Ten-Item Personality Inventory).</p>
-                        
-                        <div class="row mt-4">
-                            <div class="col-md-8 mx-auto">
-                                <canvas id="personalityComparisonChart" width="600" height="400"></canvas>
-                            </div>
+                <!-- Resultados -->
+                <div id="resultados-container" style="display: none;">
+                    <!-- Informações Gerais -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Informações Gerais</h3>
                         </div>
-                        
-                        <div class="row mt-5">
-                            <div class="col-md-12">
-                                <h4 class="text-center mb-4">Detalhamento das Mudanças</h4>
-                                
-                                <div class="table-responsive">
-                                    <table class="table table-bordered">
-                                        <thead class="table-light">
-                                            <tr>
-                                                <th>Traço de Personalidade</th>
-                                                <th>Início do Curso</th>
-                                                <th>Final do Curso</th>
-                                                <th>Diferença</th>
-                                                <th>Interpretação</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Extroversão</td>
-                                                <td id="extroversao-inicial">-</td>
-                                                <td id="extroversao-final">-</td>
-                                                <td id="extroversao-diff">-</td>
-                                                <td id="extroversao-interp">Carregando...</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Amabilidade</td>
-                                                <td id="amabilidade-inicial">-</td>
-                                                <td id="amabilidade-final">-</td>
-                                                <td id="amabilidade-diff">-</td>
-                                                <td id="amabilidade-interp">Carregando...</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Conscienciosidade</td>
-                                                <td id="conscienciosidade-inicial">-</td>
-                                                <td id="conscienciosidade-final">-</td>
-                                                <td id="conscienciosidade-diff">-</td>
-                                                <td id="conscienciosidade-interp">Carregando...</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Estabilidade Emocional</td>
-                                                <td id="estabilidade-inicial">-</td>
-                                                <td id="estabilidade-final">-</td>
-                                                <td id="estabilidade-diff">-</td>
-                                                <td id="estabilidade-interp">Carregando...</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Abertura a Experiências</td>
-                                                <td id="abertura-inicial">-</td>
-                                                <td id="abertura-final">-</td>
-                                                <td id="abertura-diff">-</td>
-                                                <td id="abertura-interp">Carregando...</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <p><strong>Código:</strong> <span id="info-codigo"></span></p>
+                                    <p><strong>Gênero:</strong> <span id="info-genero"></span></p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p><strong>Idade Inicial:</strong> <span id="info-idade-inicial"></span></p>
+                                    <p><strong>Idade Atual:</strong> <span id="info-idade-atual"></span></p>
+                                </div>
+                            </div>
+                            
+                            <div class="alert alert-info mt-3">
+                                <p class="mb-0"><strong>Status de Preenchimento:</strong></p>
+                                <div class="row mt-2">
+                                    <div class="col-md-4">
+                                        <div id="status-inicial" class="badge bg-secondary w-100 p-2">Formulário Inicial: Não preenchido</div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="status-intermediario" class="badge bg-secondary w-100 p-2">Formulário Intermediário: Não preenchido</div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div id="status-final" class="badge bg-secondary w-100 p-2">Formulário Final: Não preenchido</div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Considerações Finais -->
-                <div class="card mb-4">
-                    <div class="card-header bg-secondary text-white">
-                        <h3 class="card-title mb-0">Considerações Finais</h3>
+                    <!-- Traços de Personalidade (TIPI) -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Evolução dos Traços de Personalidade (TIPI)</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>O gráfico abaixo mostra a evolução dos seus traços de personalidade ao longo do curso, medidos pelo Ten-Item Personality Inventory (TIPI).</p>
+                            
+                            <div class="tipi-chart-container">
+                                <canvas id="tipiChart" height="300"></canvas>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <h4 class="mb-3">Interpretação dos Resultados</h4>
+                                    <p>Os cinco grandes traços de personalidade medidos pelo TIPI são:</p>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="tipi-description">
+                                                <h5>Extroversão</h5>
+                                                <p>Reflete o quanto você é sociável, assertivo e energético versus reservado e quieto.</p>
+                                                <p><strong>Seu resultado:</strong> <span id="tipi-extroversao"></span></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="tipi-description">
+                                                <h5>Amabilidade</h5>
+                                                <p>Reflete o quanto você é cooperativo, caloroso e confiável versus crítico e combativo.</p>
+                                                <p><strong>Seu resultado:</strong> <span id="tipi-amabilidade"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <div class="tipi-description">
+                                                <h5>Conscienciosidade</h5>
+                                                <p>Reflete o quanto você é organizado, responsável e trabalhador versus desorganizado e distraído.</p>
+                                                <p><strong>Seu resultado:</strong> <span id="tipi-conscienciosidade"></span></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="tipi-description">
+                                                <h5>Estabilidade Emocional</h5>
+                                                <p>Reflete o quanto você é calmo e emocionalmente estável versus ansioso e facilmente perturbado.</p>
+                                                <p><strong>Seu resultado:</strong> <span id="tipi-estabilidade"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <div class="tipi-description">
+                                                <h5>Abertura a Experiências</h5>
+                                                <p>Reflete o quanto você é criativo, curioso e aberto a novas ideias versus convencional e cauteloso.</p>
+                                                <p><strong>Seu resultado:</strong> <span id="tipi-abertura"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <p>A comparação entre os resultados do início e do final do curso pode revelar mudanças interessantes em seus traços de personalidade e em sua visão sobre a Psicologia e sua carreira profissional.</p>
-                        
-                        <p>É importante lembrar que:</p>
-                        <ul>
-                            <li>Mudanças nos traços de personalidade são normais e podem refletir seu desenvolvimento pessoal e profissional ao longo do curso.</li>
-                            <li>A formação em Psicologia frequentemente promove autoconhecimento e pode influenciar a forma como você se percebe.</li>
-                            <li>Mudanças nas áreas de interesse e propósito profissional são comuns à medida que você é exposto a diferentes campos da Psicologia.</li>
-                            <li>Não existem trajetórias "certas" ou "erradas" - cada percurso é único e valioso.</li>
-                        </ul>
-                        
-                        <div class="alert alert-info mt-3">
-                            <p class="mb-0">Estes resultados são confidenciais e fazem parte da pesquisa longitudinal do curso de Psicologia. Agradecemos sua participação neste estudo, que contribuirá para uma melhor compreensão do desenvolvimento dos estudantes ao longo da graduação.</p>
+
+                    <!-- Evolução do Propósito -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Evolução do Propósito</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="mb-3">Propósito como Psicólogo(a)</h4>
+                                    
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Momento</th>
+                                                    <th>Propósito</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Início do Curso</td>
+                                                    <td id="proposito-inicial">Não disponível</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Meio do Curso</td>
+                                                    <td id="proposito-intermediario">Não disponível</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Final do Curso</td>
+                                                    <td id="proposito-final">Não disponível</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <h4 class="mt-4 mb-3">Avaliação Quantitativa do Propósito</h4>
+                                    <p>O gráfico abaixo mostra a evolução da sua avaliação de propósito ao longo do curso.</p>
+                                    
+                                    <div class="chart-container">
+                                        <canvas id="propositoChart" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Evolução das Expectativas -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Evolução das Expectativas</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>O gráfico abaixo mostra como suas expectativas em relação ao curso e à carreira evoluíram ao longo do tempo.</p>
+                            
+                            <div class="chart-container">
+                                <canvas id="expectativasChart" height="300"></canvas>
+                            </div>
+                            
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <h4 class="mb-3">Expectativas Atendidas</h4>
+                                    
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Momento</th>
+                                                    <th>Avaliação</th>
+                                                    <th>Justificativa</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Meio do Curso</td>
+                                                    <td id="expectativas-atendidas-intermediario">Não disponível</td>
+                                                    <td id="justificativa-expectativas-intermediario">Não disponível</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Final do Curso</td>
+                                                    <td id="expectativas-atendidas-final">Não disponível</td>
+                                                    <td id="justificativa-expectativas-final">Não disponível</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Área de Interesse -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Evolução da Área de Interesse</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead class="table-light">
+                                                <tr>
+                                                    <th>Momento</th>
+                                                    <th>Área de Interesse</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Início do Curso</td>
+                                                    <td id="area-interesse-inicial">Não disponível</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Meio do Curso</td>
+                                                    <td id="area-interesse-intermediario">Não disponível</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Final do Curso</td>
+                                                    <td id="area-interesse-final">Não disponível</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    
+                                    <div id="mudanca-interesse-container" class="mt-4">
+                                        <h4 class="mb-3">Reflexão sobre Mudanças de Interesse</h4>
+                                        <div class="card mb-3">
+                                            <div class="card-header bg-light">
+                                                <h5 class="mb-0">Meio do Curso</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <p id="mudanca-interesse-intermediario">Não disponível</p>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="card">
+                                            <div class="card-header bg-light">
+                                                <h5 class="mb-0">Final do Curso</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <p id="mudanca-interesse-final">Não disponível</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desafios Enfrentados -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Desafios Enfrentados</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card mb-4">
+                                        <div class="card-header bg-light">
+                                            <h5 class="mb-0">Meio do Curso</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>Principais desafios:</strong> <span id="desafios-intermediario">Não disponível</span></p>
+                                            <p><strong>Como lidou com os desafios:</strong> <span id="superacao-intermediario">Não disponível</span></p>
+                                            <p><strong>Apoio recebido/desejado:</strong> <span id="apoio-intermediario">Não disponível</span></p>
+                                            <p><strong>Desafios futuros:</strong> <span id="desafios-futuros-intermediario">Não disponível</span></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div class="card-header bg-light">
+                                            <h5 class="mb-0">Final do Curso</h5>
+                                        </div>
+                                        <div class="card-body">
+                                            <p><strong>Principais desafios:</strong> <span id="desafios-final">Não disponível</span></p>
+                                            <p><strong>Como lidou com os desafios:</strong> <span id="superacao-final">Não disponível</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Avaliação do Curso -->
+                    <div class="form-section card mb-4" id="avaliacao-curso-container">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Avaliação do Curso</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4 class="mb-3">Avaliação Geral</h4>
+                                    <p><strong>Meio do Curso:</strong> <span id="avaliacao-geral-intermediario">Não disponível</span></p>
+                                    <p><strong>Justificativa:</strong> <span id="justificativa-avaliacao-intermediario">Não disponível</span></p>
+                                    
+                                    <h4 class="mt-4 mb-3">Pontos Positivos e a Melhorar</h4>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="card h-100">
+                                                <div class="card-header bg-success text-white">
+                                                    <h5 class="mb-0">Pontos Positivos</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p id="pontos-positivos-intermediario">Não disponível</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="card h-100">
+                                                <div class="card-header bg-warning">
+                                                    <h5 class="mb-0">Pontos a Melhorar</h5>
+                                                </div>
+                                                <div class="card-body">
+                                                    <p id="pontos-melhorar-intermediario">Não disponível</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <h4 class="mt-4 mb-3">Avaliação Quantitativa</h4>
+                                    <div class="chart-container">
+                                        <canvas id="avaliacaoChart" height="300"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Exportar Dados -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Exportar Dados</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Você pode exportar seus dados para análise posterior ou para manter um registro pessoal da sua evolução.</p>
+                            
+                            <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                <button id="btn-exportar-csv" class="btn btn-success me-md-2">Exportar para CSV</button>
+                                <button id="btn-exportar-pdf" class="btn btn-danger">Exportar para PDF</button>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="d-grid gap-2 col-md-6 mx-auto my-5">
-                    <a href="index.html" class="btn btn-primary btn-lg">Voltar para a Página Inicial</a>
+                <!-- Mensagem de Erro -->
+                <div id="erro-container" class="alert alert-danger" style="display: none;">
+                    <h4 class="alert-heading">Dados não encontrados!</h4>
+                    <p>Não foi possível encontrar dados para o código informado. Verifique se o código está correto e se você já preencheu pelo menos um dos formulários (inicial, intermediário ou final).</p>
                 </div>
             </div>
         </div>
@@ -246,218 +438,568 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5>Pesquisa Longitudinal - Curso de Psicologia</h5>
-                    <p>Faculdade Anhanguera de Feira de Santana</p>
+                    <h5>Pesquisa Longitudinal</h5>
+                    <p>Curso de Psicologia<br>Faculdade Anhanguera de Feira de Santana</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <h5>Contato</h5>
-                    <p>Em caso de dúvidas, entre em contato com a coordenação do curso</p>
-                    <p>Email: coordenacao.psicologia@anhanguera.com</p>
-                </div>
-            </div>
-            <hr>
-            <div class="row">
-                <div class="col-md-12 text-center">
-                    <p>&copy; 2025 Faculdade Anhanguera de Feira de Santana. Todos os direitos reservados.</p>
+                    <p>Contato: coordenacao.psicologia@anhanguera.com</p>
+                    <p>&copy; 2025 Todos os direitos reservados</p>
                 </div>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/scripts.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Obter parâmetros da URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const codigo = urlParams.get('codigo');
+            // Elementos do DOM
+            const btnBuscar = document.getElementById('btn-buscar');
+            const btnExportarCSV = document.getElementById('btn-exportar-csv');
+            const btnExportarPDF = document.getElementById('btn-exportar-pdf');
+            const codigoInput = document.getElementById('codigo');
+            const resultadosContainer = document.getElementById('resultados-container');
+            const erroContainer = document.getElementById('erro-container');
             
-            if (!codigo) {
-                alert('Código não encontrado. Redirecionando para a página inicial.');
-                window.location.href = 'index.html';
-                return;
-            }
+            // Variáveis para armazenar dados
+            let dadosInicial = null;
+            let dadosIntermediario = null;
+            let dadosFinal = null;
+            let tipiScores = null;
             
-            // Buscar dados dos formulários
-            Promise.all([
-                fetch(`/api/formulario/${codigo}/inicial`).then(res => res.json()).catch(() => ({ success: false })),
-                fetch(`/api/formulario/${codigo}/final`).then(res => res.json()).catch(() => ({ success: false }))
-            ])
-            .then(([dataInicial, dataFinal]) => {
-                if (dataInicial.success && dataFinal.success) {
-                    displayResults(dataInicial.formulario, dataFinal.formulario);
-                } else {
-                    // Para fins de demonstração, usar dados simulados quando não há servidor
-                    const mockDataInicial = {
-                        area_interesse: "Psicologia Clínica",
-                        proposito: "Ajudar pessoas a superarem traumas e dificuldades emocionais.",
-                        expectativa_curso: "Aprender técnicas terapêuticas e compreender melhor o comportamento humano.",
-                        expectativa_carreira: "Abrir um consultório e trabalhar com terapia individual.",
-                        desafios: "Conciliar estudos com trabalho e vida pessoal.",
-                        extroversao: 4.0,
-                        amabilidade: 5.5,
-                        conscienciosidade: 5.0,
-                        estabilidade_emocional: 4.0,
-                        abertura: 5.5
-                    };
-                    
-                    const mockDataFinal = {
-                        area_interesse_atual: "Neuropsicologia",
-                        proposito_atual: "Trabalhar com reabilitação cognitiva e avaliação neuropsicológica.",
-                        expectativas_atendidas: "Parcialmente atendidas",
-                        justificativa_expectativas: "O curso ofereceu boa base teórica, mas senti falta de mais prática clínica.",
-                        desafios_enfrentados: "Carga horária intensa, estágios exigentes e pressão para definir área de atuação.",
-                        superacao_desafios: "Organizei melhor meu tempo e busquei supervisão extra.",
-                        mudanca_interesse: "Descobri a neuropsicologia durante uma disciplina no 6º semestre e me apaixonei pela área.",
-                        mudanca_proposito: "Meu foco mudou da clínica geral para a especialização em neuropsicologia.",
-                        planos_pos_formatura: "Fazer pós-graduação",
-                        detalhamento_planos: "Fazer especialização em neuropsicologia, trabalhar em hospital e eventualmente abrir consultório.",
-                        extroversao: 4.5,
-                        amabilidade: 6.0,
-                        conscienciosidade: 6.5,
-                        estabilidade_emocional: 5.0,
-                        abertura: 6.0
-                    };
-                    
-                    displayResults(mockDataInicial, mockDataFinal);
+            // Evento de busca de resultados
+            btnBuscar.addEventListener('click', function() {
+                const codigo = codigoInput.value.trim();
+                
+                if (!codigo) {
+                    alert('Por favor, insira um código válido.');
+                    return;
                 }
-            })
-            .catch(error => {
-                console.error('Erro:', error);
-                alert('Ocorreu um erro ao carregar os resultados. Por favor, tente novamente.');
+                
+                // Buscar dados dos três momentos
+                dadosInicial = getFormData(codigo, 'inicial');
+                dadosIntermediario = getFormData(codigo, 'intermediario');
+                dadosFinal = getFormData(codigo, 'final');
+                
+                // Verificar se há pelo menos um formulário preenchido
+                if (!dadosInicial && !dadosIntermediario && !dadosFinal) {
+                    resultadosContainer.style.display = 'none';
+                    erroContainer.style.display = 'block';
+                    return;
+                }
+                
+                // Mostrar resultados e esconder mensagem de erro
+                resultadosContainer.style.display = 'block';
+                erroContainer.style.display = 'none';
+                
+                // Preencher informações gerais
+                document.getElementById('info-codigo').textContent = codigo;
+                document.getElementById('info-genero').textContent = dadosInicial ? dadosInicial.genero : (dadosIntermediario ? dadosIntermediario.genero : dadosFinal.genero);
+                document.getElementById('info-idade-inicial').textContent = dadosInicial ? dadosInicial.idade + ' anos' : 'Não disponível';
+                document.getElementById('info-idade-atual').textContent = dadosFinal ? dadosFinal.idade + ' anos' : (dadosIntermediario ? dadosIntermediario.idade + ' anos' : 'Não disponível');
+                
+                // Atualizar status de preenchimento
+                if (dadosInicial) {
+                    document.getElementById('status-inicial').className = 'badge bg-success w-100 p-2';
+                    document.getElementById('status-inicial').textContent = 'Formulário Inicial: Preenchido';
+                }
+                
+                if (dadosIntermediario) {
+                    document.getElementById('status-intermediario').className = 'badge bg-success w-100 p-2';
+                    document.getElementById('status-intermediario').textContent = 'Formulário Intermediário: Preenchido';
+                }
+                
+                if (dadosFinal) {
+                    document.getElementById('status-final').className = 'badge bg-success w-100 p-2';
+                    document.getElementById('status-final').textContent = 'Formulário Final: Preenchido';
+                }
+                
+                // Calcular e exibir escores TIPI
+                tipiScores = compareTIPIScores(codigo);
+                exibirGraficoTIPI(tipiScores);
+                exibirResultadosTIPI(tipiScores);
+                
+                // Exibir evolução do propósito
+                exibirEvolucaoPropósito();
+                
+                // Exibir evolução das expectativas
+                exibirEvolucaoExpectativas();
+                
+                // Exibir evolução da área de interesse
+                exibirEvolucaoAreaInteresse();
+                
+                // Exibir desafios enfrentados
+                exibirDesafiosEnfrentados();
+                
+                // Exibir avaliação do curso
+                exibirAvaliacaoCurso();
             });
             
-            function displayResults(dataInicial, dataFinal) {
-                // Preencher dados de propósito e expectativas
-                document.getElementById('area-interesse-inicial').textContent = dataInicial.area_interesse || "Não informado";
-                document.getElementById('proposito-inicial').textContent = dataInicial.proposito || "Não informado";
-                document.getElementById('expectativa-curso-inicial').textContent = dataInicial.expectativa_curso || "Não informado";
-                document.getElementById('expectativa-carreira-inicial').textContent = dataInicial.expectativa_carreira || "Não informado";
-                document.getElementById('desafios-inicial').textContent = dataInicial.desafios || "Não informado";
+            // Evento de exportação para CSV
+            btnExportarCSV.addEventListener('click', function() {
+                const codigo = codigoInput.value.trim();
                 
-                document.getElementById('area-interesse-final').textContent = dataFinal.area_interesse_atual || "Não informado";
-                document.getElementById('proposito-atual').textContent = dataFinal.proposito_atual || "Não informado";
-                document.getElementById('expectativas-atendidas').textContent = dataFinal.expectativas_atendidas || "Não informado";
-                document.getElementById('justificativa-expectativas').textContent = dataFinal.justificativa_expectativas || "Não informado";
-                document.getElementById('desafios-enfrentados').textContent = dataFinal.desafios_enfrentados || "Não informado";
+                if (!codigo) {
+                    alert('Por favor, insira um código válido.');
+                    return;
+                }
                 
-                document.getElementById('mudanca-interesse').textContent = dataFinal.mudanca_interesse || "Não informado";
-                document.getElementById('mudanca-proposito').textContent = dataFinal.mudanca_proposito || "Não informado";
-                document.getElementById('superacao-desafios').textContent = dataFinal.superacao_desafios || "Não informado";
-                document.getElementById('planos-pos-formatura').textContent = dataFinal.planos_pos_formatura || "Não informado";
-                document.getElementById('detalhamento-planos').textContent = dataFinal.detalhamento_planos || "Não informado";
+                const csvContent = exportComparativeDataToCSV(codigo);
                 
-                // Preencher tabela de comparação TIPI
-                document.getElementById('extroversao-inicial').textContent = dataInicial.extroversao.toFixed(1);
-                document.getElementById('extroversao-final').textContent = dataFinal.extroversao.toFixed(1);
-                document.getElementById('amabilidade-inicial').textContent = dataInicial.amabilidade.toFixed(1);
-                document.getElementById('amabilidade-final').textContent = dataFinal.amabilidade.toFixed(1);
-                document.getElementById('conscienciosidade-inicial').textContent = dataInicial.conscienciosidade.toFixed(1);
-                document.getElementById('conscienciosidade-final').textContent = dataFinal.conscienciosidade.toFixed(1);
-                document.getElementById('estabilidade-inicial').textContent = dataInicial.estabilidade_emocional.toFixed(1);
-                document.getElementById('estabilidade-final').textContent = dataFinal.estabilidade_emocional.toFixed(1);
-                document.getElementById('abertura-inicial').textContent = dataInicial.abertura.toFixed(1);
-                document.getElementById('abertura-final').textContent = dataFinal.abertura.toFixed(1);
+                if (csvContent) {
+                    downloadFile(csvContent, `dados_comparativos_${codigo}.csv`, 'text/csv');
+                }
+            });
+            
+            // Evento de exportação para PDF
+            btnExportarPDF.addEventListener('click', function() {
+                const codigo = codigoInput.value.trim();
                 
-                // Calcular e preencher diferenças
-                const extroversaoDiff = (dataFinal.extroversao - dataInicial.extroversao).toFixed(1);
-                const amabilidadeDiff = (dataFinal.amabilidade - dataInicial.amabilidade).toFixed(1);
-                const conscienciosidadeDiff = (dataFinal.conscienciosidade - dataInicial.conscienciosidade).toFixed(1);
-                const estabilidadeDiff = (dataFinal.estabilidade_emocional - dataInicial.estabilidade_emocional).toFixed(1);
-                const aberturaDiff = (dataFinal.abertura - dataInicial.abertura).toFixed(1);
+                if (!codigo) {
+                    alert('Por favor, insira um código válido.');
+                    return;
+                }
                 
-                document.getElementById('extroversao-diff').textContent = formatDiff(extroversaoDiff);
-                document.getElementById('amabilidade-diff').textContent = formatDiff(amabilidadeDiff);
-                document.getElementById('conscienciosidade-diff').textContent = formatDiff(conscienciosidadeDiff);
-                document.getElementById('estabilidade-diff').textContent = formatDiff(estabilidadeDiff);
-                document.getElementById('abertura-diff').textContent = formatDiff(aberturaDiff);
+                gerarPDFComparativo(codigo);
+            });
+            
+            // Função para exibir gráfico TIPI
+            function exibirGraficoTIPI(tipiScores) {
+                const ctx = document.getElementById('tipiChart').getContext('2d');
                 
-                // Preencher interpretações
-                document.getElementById('extroversao-interp').textContent = getInterpretation(parseFloat(extroversaoDiff));
-                document.getElementById('amabilidade-interp').textContent = getInterpretation(parseFloat(amabilidadeDiff));
-                document.getElementById('conscienciosidade-interp').textContent = getInterpretation(parseFloat(conscienciosidadeDiff));
-                document.getElementById('estabilidade-interp').textContent = getInterpretation(parseFloat(estabilidadeDiff));
-                document.getElementById('abertura-interp').textContent = getInterpretation(parseFloat(aberturaDiff));
+                // Preparar dados para o gráfico
+                const labels = ['Extroversão', 'Amabilidade', 'Conscienciosidade', 'Estabilidade Emocional', 'Abertura'];
+                const datasets = [];
+                
+                if (tipiScores.inicial) {
+                    datasets.push({
+                        label: 'Início do Curso',
+                        data: [
+                            tipiScores.inicial.extroversao,
+                            tipiScores.inicial.amabilidade,
+                            tipiScores.inicial.conscienciosidade,
+                            tipiScores.inicial.estabilidade_emocional,
+                            tipiScores.inicial.abertura
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    });
+                }
+                
+                if (tipiScores.intermediario) {
+                    datasets.push({
+                        label: 'Meio do Curso',
+                        data: [
+                            tipiScores.intermediario.extroversao,
+                            tipiScores.intermediario.amabilidade,
+                            tipiScores.intermediario.conscienciosidade,
+                            tipiScores.intermediario.estabilidade_emocional,
+                            tipiScores.intermediario.abertura
+                        ],
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    });
+                }
+                
+                if (tipiScores.final) {
+                    datasets.push({
+                        label: 'Final do Curso',
+                        data: [
+                            tipiScores.final.extroversao,
+                            tipiScores.final.amabilidade,
+                            tipiScores.final.conscienciosidade,
+                            tipiScores.final.estabilidade_emocional,
+                            tipiScores.final.abertura
+                        ],
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 2,
+                        pointRadius: 4
+                    });
+                }
                 
                 // Criar gráfico
-                createComparisonChart(dataInicial, dataFinal);
-            }
-            
-            function formatDiff(diff) {
-                const num = parseFloat(diff);
-                if (num > 0) {
-                    return `+${diff}`;
-                } else {
-                    return diff;
-                }
-            }
-            
-            function getInterpretation(diff) {
-                if (Math.abs(diff) < 0.5) {
-                    return "Estabilidade neste traço";
-                } else if (diff > 0) {
-                    return "Aumento significativo";
-                } else {
-                    return "Diminuição significativa";
-                }
-            }
-            
-            function createComparisonChart(dataInicial, dataFinal) {
-                const ctx = document.getElementById('personalityComparisonChart').getContext('2d');
-                
                 new Chart(ctx, {
                     type: 'radar',
                     data: {
-                        labels: [
-                            'Extroversão',
-                            'Amabilidade',
-                            'Conscienciosidade',
-                            'Estabilidade Emocional',
-                            'Abertura a Experiências'
-                        ],
-                        datasets: [
-                            {
-                                label: 'Início do Curso',
-                                data: [
-                                    dataInicial.extroversao,
-                                    dataInicial.amabilidade,
-                                    dataInicial.conscienciosidade,
-                                    dataInicial.estabilidade_emocional,
-                                    dataInicial.abertura
-                                ],
-                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                                borderColor: 'rgba(54, 162, 235, 1)',
-                                pointBackgroundColor: 'rgba(54, 162, 235, 1)',
-                                pointBorderColor: '#fff'
-                            },
-                            {
-                                label: 'Final do Curso',
-                                data: [
-                                    dataFinal.extroversao,
-                                    dataFinal.amabilidade,
-                                    dataFinal.conscienciosidade,
-                                    dataFinal.estabilidade_emocional,
-                                    dataFinal.abertura
-                                ],
-                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                                borderColor: 'rgba(255, 99, 132, 1)',
-                                pointBackgroundColor: 'rgba(255, 99, 132, 1)',
-                                pointBorderColor: '#fff'
-                            }
-                        ]
+                        labels: labels,
+                        datasets: datasets
                     },
                     options: {
                         scales: {
                             r: {
-                                angleLines: {
-                                    display: true
-                                },
-                                suggestedMin: 1,
-                                suggestedMax: 7
+                                min: 1,
+                                max: 7,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return context.dataset.label + ': ' + context.raw.toFixed(2);
+                                    }
+                                }
                             }
                         }
                     }
                 });
+            }
+            
+            // Função para exibir resultados TIPI
+            function exibirResultadosTIPI(tipiScores) {
+                // Função para formatar texto de resultado
+                function formatarResultado(inicial, intermediario, final) {
+                    let texto = '';
+                    
+                    if (inicial) {
+                        texto += `<span class="badge bg-primary">Início: ${inicial.toFixed(2)}</span> `;
+                    }
+                    
+                    if (intermediario) {
+                        texto += `<span class="badge bg-warning text-dark">Meio: ${intermediario.toFixed(2)}</span> `;
+                    }
+                    
+                    if (final) {
+                        texto += `<span class="badge bg-success">Final: ${final.toFixed(2)}</span>`;
+                    }
+                    
+                    return texto;
+                }
+                
+                // Exibir resultados
+                document.getElementById('tipi-extroversao').innerHTML = formatarResultado(
+                    tipiScores.inicial ? tipiScores.inicial.extroversao : null,
+                    tipiScores.intermediario ? tipiScores.intermediario.extroversao : null,
+                    tipiScores.final ? tipiScores.final.extroversao : null
+                );
+                
+                document.getElementById('tipi-amabilidade').innerHTML = formatarResultado(
+                    tipiScores.inicial ? tipiScores.inicial.amabilidade : null,
+                    tipiScores.intermediario ? tipiScores.intermediario.amabilidade : null,
+                    tipiScores.final ? tipiScores.final.amabilidade : null
+                );
+                
+                document.getElementById('tipi-conscienciosidade').innerHTML = formatarResultado(
+                    tipiScores.inicial ? tipiScores.inicial.conscienciosidade : null,
+                    tipiScores.intermediario ? tipiScores.intermediario.conscienciosidade : null,
+                    tipiScores.final ? tipiScores.final.conscienciosidade : null
+                );
+                
+                document.getElementById('tipi-estabilidade').innerHTML = formatarResultado(
+                    tipiScores.inicial ? tipiScores.inicial.estabilidade_emocional : null,
+                    tipiScores.intermediario ? tipiScores.intermediario.estabilidade_emocional : null,
+                    tipiScores.final ? tipiScores.final.estabilidade_emocional : null
+                );
+                
+                document.getElementById('tipi-abertura').innerHTML = formatarResultado(
+                    tipiScores.inicial ? tipiScores.inicial.abertura : null,
+                    tipiScores.intermediario ? tipiScores.intermediario.abertura : null,
+                    tipiScores.final ? tipiScores.final.abertura : null
+                );
+            }
+            
+            // Função para exibir evolução do propósito
+            function exibirEvolucaoPropósito() {
+                // Preencher tabela de propósito
+                document.getElementById('proposito-inicial').textContent = dadosInicial ? dadosInicial.proposito : 'Não disponível';
+                document.getElementById('proposito-intermediario').textContent = dadosIntermediario ? dadosIntermediario.proposito_atual : 'Não disponível';
+                document.getElementById('proposito-final').textContent = dadosFinal ? dadosFinal.proposito_atual : 'Não disponível';
+                
+                // Preparar dados para o gráfico de propósito
+                const ctx = document.getElementById('propositoChart').getContext('2d');
+                
+                const labels = ['Clareza sobre sentido da vida', 'Atividades contribuem para propósito', 'Objetivos de longo prazo', 'Vida com rumo claro', 'Fazer diferença através da Psicologia'];
+                const datasets = [];
+                
+                if (dadosInicial) {
+                    datasets.push({
+                        label: 'Início do Curso',
+                        data: [
+                            dadosInicial.proposito_clareza,
+                            dadosInicial.proposito_contribuicao,
+                            dadosInicial.proposito_objetivos,
+                            dadosInicial.proposito_rumo,
+                            dadosInicial.proposito_diferenca
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2
+                    });
+                }
+                
+                if (dadosIntermediario) {
+                    datasets.push({
+                        label: 'Meio do Curso',
+                        data: [
+                            dadosIntermediario.proposito_atual_clareza,
+                            dadosIntermediario.proposito_atual_contribuicao,
+                            dadosIntermediario.proposito_atual_objetivos,
+                            dadosIntermediario.proposito_atual_rumo,
+                            dadosIntermediario.proposito_atual_diferenca
+                        ],
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 2
+                    });
+                }
+                
+                // Criar gráfico
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: datasets
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 5,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Função para exibir evolução das expectativas
+            function exibirEvolucaoExpectativas() {
+                // Preencher tabela de expectativas atendidas
+                document.getElementById('expectativas-atendidas-intermediario').textContent = dadosIntermediario ? dadosIntermediario.expectativas_atendidas : 'Não disponível';
+                document.getElementById('justificativa-expectativas-intermediario').textContent = dadosIntermediario ? dadosIntermediario.justificativa_expectativas : 'Não disponível';
+                document.getElementById('expectativas-atendidas-final').textContent = dadosFinal ? dadosFinal.expectativas_atendidas : 'Não disponível';
+                document.getElementById('justificativa-expectativas-final').textContent = dadosFinal ? dadosFinal.justificativa_expectativas : 'Não disponível';
+                
+                // Preparar dados para o gráfico de expectativas
+                const ctx = document.getElementById('expectativasChart').getContext('2d');
+                
+                const labels = ['Habilidades clínicas', 'Pesquisa', 'Networking', 'Preparação para o mercado', 'Satisfação pessoal', 'Retorno financeiro'];
+                const datasets = [];
+                
+                if (dadosInicial) {
+                    datasets.push({
+                        label: 'Início do Curso',
+                        data: [
+                            dadosInicial.expectativa_habilidades_clinicas,
+                            dadosInicial.expectativa_pesquisa,
+                            dadosInicial.expectativa_networking,
+                            dadosInicial.expectativa_preparacao,
+                            dadosInicial.expectativa_satisfacao,
+                            dadosInicial.expectativa_financeiro
+                        ],
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 2
+                    });
+                }
+                
+                if (dadosIntermediario) {
+                    datasets.push({
+                        label: 'Meio do Curso',
+                        data: [
+                            dadosIntermediario.expectativa_atual_habilidades_clinicas,
+                            dadosIntermediario.expectativa_atual_pesquisa,
+                            dadosIntermediario.expectativa_atual_networking,
+                            dadosIntermediario.expectativa_atual_preparacao,
+                            dadosIntermediario.expectativa_atual_satisfacao,
+                            dadosIntermediario.expectativa_atual_financeiro
+                        ],
+                        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 2
+                    });
+                }
+                
+                // Criar gráfico
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: labels,
+                        datasets: datasets
+                    },
+                    options: {
+                        scales: {
+                            r: {
+                                min: 1,
+                                max: 5,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Função para exibir evolução da área de interesse
+            function exibirEvolucaoAreaInteresse() {
+                // Preencher tabela de área de interesse
+                document.getElementById('area-interesse-inicial').textContent = dadosInicial ? dadosInicial.area_interesse : 'Não disponível';
+                document.getElementById('area-interesse-intermediario').textContent = dadosIntermediario ? dadosIntermediario.area_interesse_atual : 'Não disponível';
+                document.getElementById('area-interesse-final').textContent = dadosFinal ? dadosFinal.area_interesse_atual : 'Não disponível';
+                
+                // Preencher reflexões sobre mudanças
+                document.getElementById('mudanca-interesse-intermediario').textContent = dadosIntermediario ? dadosIntermediario.mudanca_interesse : 'Não disponível';
+                document.getElementById('mudanca-interesse-final').textContent = dadosFinal ? dadosFinal.mudanca_interesse : 'Não disponível';
+            }
+            
+            // Função para exibir desafios enfrentados
+            function exibirDesafiosEnfrentados() {
+                // Preencher desafios do meio do curso
+                document.getElementById('desafios-intermediario').textContent = dadosIntermediario ? dadosIntermediario.desafios_enfrentados : 'Não disponível';
+                document.getElementById('superacao-intermediario').textContent = dadosIntermediario ? dadosIntermediario.superacao_desafios : 'Não disponível';
+                document.getElementById('apoio-intermediario').textContent = dadosIntermediario ? dadosIntermediario.apoio_recebido : 'Não disponível';
+                document.getElementById('desafios-futuros-intermediario').textContent = dadosIntermediario ? dadosIntermediario.desafios_futuros : 'Não disponível';
+                
+                // Preencher desafios do final do curso
+                document.getElementById('desafios-final').textContent = dadosFinal ? dadosFinal.desafios_enfrentados : 'Não disponível';
+                document.getElementById('superacao-final').textContent = dadosFinal ? dadosFinal.superacao_desafios : 'Não disponível';
+            }
+            
+            // Função para exibir avaliação do curso
+            function exibirAvaliacaoCurso() {
+                // Verificar se há dados do formulário intermediário
+                if (!dadosIntermediario) {
+                    document.getElementById('avaliacao-curso-container').style.display = 'none';
+                    return;
+                }
+                
+                document.getElementById('avaliacao-curso-container').style.display = 'block';
+                
+                // Preencher avaliação geral
+                document.getElementById('avaliacao-geral-intermediario').textContent = dadosIntermediario.avaliacao_geral;
+                document.getElementById('justificativa-avaliacao-intermediario').textContent = dadosIntermediario.justificativa_avaliacao;
+                
+                // Preencher pontos positivos e a melhorar
+                document.getElementById('pontos-positivos-intermediario').textContent = dadosIntermediario.pontos_positivos;
+                document.getElementById('pontos-melhorar-intermediario').textContent = dadosIntermediario.pontos_melhorar;
+                
+                // Preparar dados para o gráfico de avaliação
+                const ctx = document.getElementById('avaliacaoChart').getContext('2d');
+                
+                const labels = ['Aulas teóricas', 'Aulas práticas', 'Corpo docente', 'Infraestrutura', 'Oportunidades de estágio'];
+                const data = [
+                    dadosIntermediario.avaliacao_aulas_teoricas,
+                    dadosIntermediario.avaliacao_aulas_praticas,
+                    dadosIntermediario.avaliacao_professores,
+                    dadosIntermediario.avaliacao_infraestrutura,
+                    dadosIntermediario.avaliacao_estagios
+                ];
+                
+                // Criar gráfico
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Avaliação (1-5)',
+                            data: data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 5,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Função para gerar PDF comparativo
+            function gerarPDFComparativo(codigo) {
+                // Carregar a biblioteca jsPDF
+                const script = document.createElement('script');
+                script.src = 'https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';
+                document.head.appendChild(script);
+                
+                script.onload = function() {
+                    // Carregar a biblioteca html2canvas
+                    const script2 = document.createElement('script');
+                    script2.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+                    document.head.appendChild(script2);
+                    
+                    script2.onload = function() {
+                        // Capturar o conteúdo da página
+                        html2canvas(document.getElementById('resultados-container')).then(canvas => {
+                            // Criar PDF
+                            const { jsPDF } = window.jspdf;
+                            const pdf = new jsPDF('p', 'mm', 'a4');
+                            
+                            // Adicionar título
+                            pdf.setFontSize(18);
+                            pdf.text('Resultados Comparativos - Pesquisa Longitudinal', 105, 15, { align: 'center' });
+                            
+                            pdf.setFontSize(12);
+                            pdf.text(`Código: ${codigo}`, 105, 25, { align: 'center' });
+                            pdf.text(`Data de geração: ${new Date().toLocaleDateString('pt-BR')}`, 105, 30, { align: 'center' });
+                            
+                            // Adicionar a imagem ao PDF
+                            const imgData = canvas.toDataURL('image/png');
+                            const imgWidth = 190;
+                            const pageHeight = 295;
+                            const imgHeight = canvas.height * imgWidth / canvas.width;
+                            let heightLeft = imgHeight;
+                            let position = 35;
+                            
+                            pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                            heightLeft -= (pageHeight - position);
+                            
+                            // Adicionar páginas adicionais se necessário
+                            while (heightLeft >= 0) {
+                                position = heightLeft - imgHeight;
+                                pdf.addPage();
+                                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                                heightLeft -= pageHeight;
+                            }
+                            
+                            // Salvar o PDF
+                            pdf.save(`resultados_comparativos_${codigo}.pdf`);
+                        });
+                    };
+                };
             }
         });
     </script>

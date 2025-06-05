@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Intermediário - Pesquisa Longitudinal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Pesquisa Longitudinal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre a Pesquisa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_inicial.html">Formulário Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="formulario_intermediario.html">Formulário Intermediário</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_final.html">Formulário Final</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Área Administrativa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container my-4">
+        <div class="row hero-section">
+            <div class="col-md-12 text-center">
+                <h1 class="display-5 fw-bold">Formulário Intermediário</h1>
+                <p class="lead">Para alunos na metade do curso de Psicologia</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- TCLE Section -->
+                <div class="form-section" id="tcle-section">
+                    <h3>Termo de Consentimento Livre e Esclarecido (TCLE)</h3>
+                    
+                    <div class="tcle-container">
+                        <h4 class="text-center">TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO</h4>
+                        <p>Você está sendo convidado(a) a participar da pesquisa "Estudo Longitudinal sobre Propósito, Expectativas e Traços de Personalidade em Estudantes de Psicologia", desenvolvida pelo Curso de Psicologia da Faculdade Anhanguera de Feira de Santana.</p>
+                        
+                        <p><strong>Objetivo:</strong> Esta pesquisa tem como objetivo acompanhar o propósito e as expectativas dos alunos do curso de Psicologia, desde o início até a conclusão da graduação, relacionando essa trajetória com seus traços de personalidade avaliados pelo TIPI (Ten-Item Personality Inventory).</p>
+                        
+                        <p><strong>Procedimentos:</strong> Sua participação envolve o preenchimento de um questionário no início do curso, outro na metade do curso e um terceiro ao final da graduação, além da aplicação do inventário TIPI em todos os momentos. O tempo estimado para preenchimento é de aproximadamente 15 minutos em cada etapa.</p>
+                        
+                        <p><strong>Riscos e Benefícios:</strong> Os riscos associados à sua participação são mínimos, podendo incluir eventual desconforto ao responder algumas perguntas. Como benefícios, você receberá feedback sobre seus traços de personalidade e, ao final do curso, poderá comparar sua evolução ao longo da graduação.</p>
+                        
+                        <p><strong>Confidencialidade:</strong> Suas respostas serão tratadas de forma anônima e confidencial. Os dados coletados serão utilizados apenas para fins acadêmicos e científicos. Para permitir o pareamento dos dados nos três momentos da pesquisa, você utilizará o mesmo código único que criou no formulário inicial.</p>
+                        
+                        <p><strong>Participação Voluntária:</strong> Sua participação é voluntária e você tem o direito de se retirar da pesquisa a qualquer momento, sem qualquer penalidade ou prejuízo.</p>
+                        
+                        <p><strong>Contato:</strong> Em caso de dúvidas sobre a pesquisa, você pode entrar em contato com a coordenação do curso pelo e-mail: coordenacao.psicologia@anhanguera.com</p>
+                        
+                        <p>Ao marcar a opção "Concordo em participar", você declara que leu e compreendeu as informações acima e concorda em participar voluntariamente desta pesquisa.</p>
+                    </div>
+                    
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="tcle-checkbox" required>
+                        <label class="form-check-label" for="tcle-checkbox">
+                            Concordo em participar voluntariamente desta pesquisa e autorizo a utilização dos meus dados para fins acadêmicos e científicos.
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="formulario-intermediario" class="needs-validation" novalidate>
+                    <!-- Identificação Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Identificação</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="alert alert-warning">
+                                <p class="mb-0"><strong>Importante:</strong> Utilize o mesmo código único que você criou no Formulário Inicial. Isso permitirá comparar suas respostas nos diferentes momentos da pesquisa.</p>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="codigo" class="form-label">Código Único*</label>
+                                <input type="text" class="form-control" id="codigo" name="codigo" required>
+                                <div class="invalid-feedback">
+                                    Por favor, informe seu código único.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="idade" class="form-label">Idade Atual*</label>
+                                <input type="number" class="form-control" id="idade" name="idade" min="16" max="100" required>
+                                <div class="invalid-feedback">
+                                    Por favor, informe sua idade atual.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="genero" class="form-label">Gênero*</label>
+                                <select class="form-select" id="genero" name="genero" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="Feminino">Feminino</option>
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Não-binário">Não-binário</option>
+                                    <option value="Prefiro não informar">Prefiro não informar</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione uma opção.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="trabalho" class="form-label">Situação de Trabalho Atual*</label>
+                                <select class="form-select" id="trabalho" name="trabalho" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="Não trabalho">Não trabalho</option>
+                                    <option value="Trabalho em meio período">Trabalho em meio período</option>
+                                    <option value="Trabalho em período integral">Trabalho em período integral</option>
+                                    <option value="Trabalho eventualmente">Trabalho eventualmente</option>
+                                    <option value="Estágio">Estágio</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione uma opção.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="periodo_atual" class="form-label">Período/Semestre atual no curso*</label>
+                                <select class="form-select" id="periodo_atual" name="periodo_atual" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="3º período/semestre">3º período/semestre</option>
+                                    <option value="4º período/semestre">4º período/semestre</option>
+                                    <option value="5º período/semestre">5º período/semestre</option>
+                                    <option value="6º período/semestre">6º período/semestre</option>
+                                    <option value="Outro">Outro</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione uma opção.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Avaliação Parcial do Curso Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Avaliação Parcial do Curso</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="avaliacao_geral" class="form-label">Como você avalia o curso até o momento?*</label>
+                                <select class="form-select" id="avaliacao_geral" name="avaliacao_geral" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="Excelente">Excelente</option>
+                                    <option value="Bom">Bom</option>
+                                    <option value="Regular">Regular</option>
+                                    <option value="Ruim">Ruim</option>
+                                    <option value="Péssimo">Péssimo</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione uma opção.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="justificativa_avaliacao" class="form-label">Justifique sua avaliação:*</label>
+                                <textarea class="form-control" id="justificativa_avaliacao" name="justificativa_avaliacao" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="pontos_positivos" class="form-label">Quais são os principais pontos positivos do curso até agora?*</label>
+                                <textarea class="form-control" id="pontos_positivos" name="pontos_positivos" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="pontos_melhorar" class="form-label">Quais aspectos do curso você acredita que poderiam ser melhorados?*</label>
+                                <textarea class="form-control" id="pontos_melhorar" name="pontos_melhorar" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <!-- Avaliação Quantitativa do Curso -->
+                            <h4 class="mt-4 mb-3 text-primary fw-bold">Avalie os seguintes aspectos do curso (1 = Muito Insatisfeito, 5 = Muito Satisfeito)*</h4>
+                            <div class="alert alert-light border">
+                                <small class="text-muted">Para cada item abaixo, selecione um número de 1 a 5 que melhor representa seu nível de satisfação.</small>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Qualidade das aulas teóricas</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_teoricas" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_teoricas" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_teoricas" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_teoricas" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_teoricas" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Qualidade das aulas práticas</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_praticas" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_praticas" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_praticas" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_praticas" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_aulas_praticas" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Qualidade do corpo docente</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_professores" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_professores" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_professores" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_professores" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_professores" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Infraestrutura da instituição</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_infraestrutura" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_infraestrutura" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_infraestrutura" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_infraestrutura" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_infraestrutura" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Oportunidades de estágio/prática</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_estagios" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_estagios" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_estagios" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_estagios" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="avaliacao_estagios" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mudanças nas Expectativas Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Mudanças nas Expectativas</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="area_interesse_atual" class="form-label">Qual área da Psicologia mais lhe interessa atualmente?*</label>
+                                <select class="form-select" id="area_interesse_atual" name="area_interesse_atual" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="Psicologia Clínica">Psicologia Clínica</option>
+                                    <option value="Psicologia Organizacional">Psicologia Organizacional</option>
+                                    <option value="Psicologia Escolar/Educacional">Psicologia Escolar/Educacional</option>
+                                    <option value="Psicologia Social">Psicologia Social</option>
+                                    <option value="Neuropsicologia">Neuropsicologia</option>
+                                    <option value="Psicologia da Saúde">Psicologia da Saúde</option>
+                                    <option value="Psicologia Jurídica">Psicologia Jurídica</option>
+                                    <option value="Psicologia do Esporte">Psicologia do Esporte</option>
+                                    <option value="Ainda não sei">Ainda não sei</option>
+                                    <option value="Outra">Outra</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione uma opção.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="mudanca_interesse" class="form-label">Seu interesse por áreas da Psicologia mudou desde o início do curso? Por quê?*</label>
+                                <textarea class="form-control" id="mudanca_interesse" name="mudanca_interesse" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="expectativas_atendidas" class="form-label">Em que medida suas expectativas iniciais sobre o curso estão sendo atendidas?*</label>
+                                <select class="form-select" id="expectativas_atendidas" name="expectativas_atendidas" required>
+                                    <option value="" selected disabled>Selecione...</option>
+                                    <option value="Totalmente atendidas">Totalmente atendidas</option>
+                                    <option value="Parcialmente atendidas">Parcialmente atendidas</option>
+                                    <option value="Pouco atendidas">Pouco atendidas</option>
+                                    <option value="Não estão sendo atendidas">Não estão sendo atendidas</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                    Por favor, selecione uma opção.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="justificativa_expectativas" class="form-label">Justifique sua resposta anterior:*</label>
+                                <textarea class="form-control" id="justificativa_expectativas" name="justificativa_expectativas" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <!-- Expectativas Atuais Quantitativas -->
+                            <h4 class="mt-4 mb-3 text-primary fw-bold">Avalie suas expectativas atuais (1 = Muito Baixa, 5 = Muito Alta)*</h4>
+                            <div class="alert alert-light border">
+                                <small class="text-muted">Para cada item abaixo, selecione um número de 1 a 5 que melhor representa o nível da sua expectativa atual.</small>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Minha expectativa atual de desenvolver habilidades clínicas durante o curso é:</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_habilidades_clinicas" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_habilidades_clinicas" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_habilidades_clinicas" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_habilidades_clinicas" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_habilidades_clinicas" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Minha expectativa atual de ter oportunidades de pesquisa durante o curso é:</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_pesquisa" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_pesquisa" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_pesquisa" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_pesquisa" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_pesquisa" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Minha expectativa atual de fazer networking e contatos profissionais durante o curso é:</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_networking" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_networking" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_networking" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_networking" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_networking" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Minha expectativa atual de que o curso me preparará bem para o mercado de trabalho é:</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_preparacao" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_preparacao" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_preparacao" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_preparacao" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_preparacao" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Minha expectativa atual de satisfação pessoal com a futura carreira em Psicologia é:</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_satisfacao" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_satisfacao" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_satisfacao" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_satisfacao" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_satisfacao" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Minha expectativa atual de retorno financeiro na carreira de Psicologia é:</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_financeiro" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_financeiro" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_financeiro" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_financeiro" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="expectativa_atual_financeiro" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Desafios Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Desafios Enfrentados</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="desafios_enfrentados" class="form-label">Quais foram os principais desafios que você enfrentou na primeira metade do curso?*</label>
+                                <textarea class="form-control" id="desafios_enfrentados" name="desafios_enfrentados" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="superacao_desafios" class="form-label">Como você lidou com esses desafios?*</label>
+                                <textarea class="form-control" id="superacao_desafios" name="superacao_desafios" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="apoio_recebido" class="form-label">Que tipo de apoio você recebeu (ou gostaria de ter recebido) da instituição para superar esses desafios?*</label>
+                                <textarea class="form-control" id="apoio_recebido" name="apoio_recebido" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="desafios_futuros" class="form-label">Quais desafios você antecipa para a segunda metade do curso?*</label>
+                                <textarea class="form-control" id="desafios_futuros" name="desafios_futuros" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Propósito Atual Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Propósito Atual</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="proposito_atual" class="form-label">Qual é o seu principal propósito como futuro(a) psicólogo(a) atualmente?*</label>
+                                <textarea class="form-control" id="proposito_atual" name="proposito_atual" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="mudanca_proposito" class="form-label">Seu propósito mudou em relação ao início do curso? Como?*</label>
+                                <textarea class="form-control" id="mudanca_proposito" name="mudanca_proposito" rows="3" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor, responda esta pergunta.
+                                </div>
+                            </div>
+                            
+                            <!-- Propósito Atual Quantitativo -->
+                            <h4 class="mt-4 mb-3 text-primary fw-bold">Avalie seu senso de propósito atual (1 = Discordo Totalmente, 5 = Concordo Totalmente)*</h4>
+                            <div class="alert alert-light border">
+                                <small class="text-muted">Para cada afirmação abaixo, selecione um número de 1 a 5 que melhor representa sua opinião atual.</small>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Tenho clareza sobre o que dá sentido à minha vida.</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_clareza" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_clareza" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_clareza" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_clareza" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_clareza" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Sinto que minhas atividades diárias contribuem para um propósito maior.</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_contribuicao" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_contribuicao" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_contribuicao" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_contribuicao" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_contribuicao" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Tenho objetivos de longo prazo que me motivam.</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_objetivos" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_objetivos" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_objetivos" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_objetivos" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_objetivos" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Sinto que minha vida tem um rumo claro.</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_rumo" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_rumo" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_rumo" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_rumo" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_rumo" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>Acredito que posso fazer a diferença no mundo através da Psicologia.</p>
+                                <div class="likert-scale-5">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_diferenca" value="1" required><label class="form-check-label">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_diferenca" value="2"><label class="form-check-label">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_diferenca" value="3"><label class="form-check-label">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_diferenca" value="4"><label class="form-check-label">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="proposito_atual_diferenca" value="5"><label class="form-check-label">5</label></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TIPI Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Inventário de Personalidade TIPI</h3>
+                        </div>
+                        <div class="card-body">
+                            <p>Instruções: Avalie o quanto você concorda ou discorda com cada uma das seguintes afirmações sobre você. Use a escala de 1 (Discordo Totalmente) a 7 (Concordo Totalmente).</p>
+                            
+                            <div class="likert-question">
+                                <p>1. Extrovertido(a), entusiasta</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi1" id="tipi1_1" value="1" required><label class="form-check-label" for="tipi1_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi1" id="tipi1_2" value="2"><label class="form-check-label" for="tipi1_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi1" id="tipi1_3" value="3"><label class="form-check-label" for="tipi1_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi1" id="tipi1_4" value="4"><label class="form-check-label" for="tipi1_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi1" id="tipi1_5" value="5"><label class="form-check-label" for="tipi1_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi1" id="tipi1_6" value="6"><label class="form-check-label" for="tipi1_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi1" id="tipi1_7" value="7"><label class="form-check-label" for="tipi1_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>2. Crítico(a), briguento(a)</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi2" id="tipi2_1" value="1" required><label class="form-check-label" for="tipi2_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi2" id="tipi2_2" value="2"><label class="form-check-label" for="tipi2_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi2" id="tipi2_3" value="3"><label class="form-check-label" for="tipi2_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi2" id="tipi2_4" value="4"><label class="form-check-label" for="tipi2_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi2" id="tipi2_5" value="5"><label class="form-check-label" for="tipi2_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi2" id="tipi2_6" value="6"><label class="form-check-label" for="tipi2_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi2" id="tipi2_7" value="7"><label class="form-check-label" for="tipi2_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>3. Confiável, autodisciplinado(a)</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi3" id="tipi3_1" value="1" required><label class="form-check-label" for="tipi3_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi3" id="tipi3_2" value="2"><label class="form-check-label" for="tipi3_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi3" id="tipi3_3" value="3"><label class="form-check-label" for="tipi3_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi3" id="tipi3_4" value="4"><label class="form-check-label" for="tipi3_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi3" id="tipi3_5" value="5"><label class="form-check-label" for="tipi3_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi3" id="tipi3_6" value="6"><label class="form-check-label" for="tipi3_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi3" id="tipi3_7" value="7"><label class="form-check-label" for="tipi3_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>4. Ansioso(a), facilmente chateado(a)</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi4" id="tipi4_1" value="1" required><label class="form-check-label" for="tipi4_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi4" id="tipi4_2" value="2"><label class="form-check-label" for="tipi4_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi4" id="tipi4_3" value="3"><label class="form-check-label" for="tipi4_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi4" id="tipi4_4" value="4"><label class="form-check-label" for="tipi4_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi4" id="tipi4_5" value="5"><label class="form-check-label" for="tipi4_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi4" id="tipi4_6" value="6"><label class="form-check-label" for="tipi4_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi4" id="tipi4_7" value="7"><label class="form-check-label" for="tipi4_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>5. Aberto(a) a novas experiências, complexo(a)</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi5" id="tipi5_1" value="1" required><label class="form-check-label" for="tipi5_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi5" id="tipi5_2" value="2"><label class="form-check-label" for="tipi5_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi5" id="tipi5_3" value="3"><label class="form-check-label" for="tipi5_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi5" id="tipi5_4" value="4"><label class="form-check-label" for="tipi5_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi5" id="tipi5_5" value="5"><label class="form-check-label" for="tipi5_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi5" id="tipi5_6" value="6"><label class="form-check-label" for="tipi5_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi5" id="tipi5_7" value="7"><label class="form-check-label" for="tipi5_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>6. Reservado(a), quieto(a)</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi6" id="tipi6_1" value="1" required><label class="form-check-label" for="tipi6_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi6" id="tipi6_2" value="2"><label class="form-check-label" for="tipi6_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi6" id="tipi6_3" value="3"><label class="form-check-label" for="tipi6_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi6" id="tipi6_4" value="4"><label class="form-check-label" for="tipi6_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi6" id="tipi6_5" value="5"><label class="form-check-label" for="tipi6_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi6" id="tipi6_6" value="6"><label class="form-check-label" for="tipi6_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi6" id="tipi6_7" value="7"><label class="form-check-label" for="tipi6_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>7. Simpático(a), caloroso(a)</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi7" id="tipi7_1" value="1" required><label class="form-check-label" for="tipi7_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi7" id="tipi7_2" value="2"><label class="form-check-label" for="tipi7_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi7" id="tipi7_3" value="3"><label class="form-check-label" for="tipi7_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi7" id="tipi7_4" value="4"><label class="form-check-label" for="tipi7_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi7" id="tipi7_5" value="5"><label class="form-check-label" for="tipi7_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi7" id="tipi7_6" value="6"><label class="form-check-label" for="tipi7_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi7" id="tipi7_7" value="7"><label class="form-check-label" for="tipi7_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>8. Desorganizado(a), descuidado(a)</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi8" id="tipi8_1" value="1" required><label class="form-check-label" for="tipi8_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi8" id="tipi8_2" value="2"><label class="form-check-label" for="tipi8_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi8" id="tipi8_3" value="3"><label class="form-check-label" for="tipi8_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi8" id="tipi8_4" value="4"><label class="form-check-label" for="tipi8_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi8" id="tipi8_5" value="5"><label class="form-check-label" for="tipi8_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi8" id="tipi8_6" value="6"><label class="form-check-label" for="tipi8_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi8" id="tipi8_7" value="7"><label class="form-check-label" for="tipi8_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>9. Calmo(a), emocionalmente estável</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi9" id="tipi9_1" value="1" required><label class="form-check-label" for="tipi9_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi9" id="tipi9_2" value="2"><label class="form-check-label" for="tipi9_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi9" id="tipi9_3" value="3"><label class="form-check-label" for="tipi9_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi9" id="tipi9_4" value="4"><label class="form-check-label" for="tipi9_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi9" id="tipi9_5" value="5"><label class="form-check-label" for="tipi9_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi9" id="tipi9_6" value="6"><label class="form-check-label" for="tipi9_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi9" id="tipi9_7" value="7"><label class="form-check-label" for="tipi9_7">7</label></div>
+                                </div>
+                            </div>
+                            
+                            <div class="likert-question">
+                                <p>10. Convencional, não criativo(a)</p>
+                                <div class="likert-scale">
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi10" id="tipi10_1" value="1" required><label class="form-check-label" for="tipi10_1">1</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi10" id="tipi10_2" value="2"><label class="form-check-label" for="tipi10_2">2</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi10" id="tipi10_3" value="3"><label class="form-check-label" for="tipi10_3">3</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi10" id="tipi10_4" value="4"><label class="form-check-label" for="tipi10_4">4</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi10" id="tipi10_5" value="5"><label class="form-check-label" for="tipi10_5">5</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi10" id="tipi10_6" value="6"><label class="form-check-label" for="tipi10_6">6</label></div>
+                                    <div class="form-check"> <input class="form-check-input" type="radio" name="tipi10" id="tipi10_7" value="7"><label class="form-check-label" for="tipi10_7">7</label></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-lg">Enviar Respostas</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Pesquisa Longitudinal</h5>
+                    <p>Curso de Psicologia<br>Faculdade Anhanguera de Feira de Santana</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p>Contato: coordenacao.psicologia@anhanguera.com</p>
+                    <p>&copy; 2025 Todos os direitos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+</body>
+</html>

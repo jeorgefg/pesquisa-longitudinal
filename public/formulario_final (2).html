@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Final - Pesquisa Longitudinal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Pesquisa Longitudinal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sobre.html">Sobre a Pesquisa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_inicial.html">Formulário Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formulario_intermediario.html">Formulário Intermediário</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="formulario_final.html">Formulário Final</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Área Administrativa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="container my-4">
+        <div class="row hero-section">
+            <div class="col-md-12 text-center">
+                <h1 class="display-5 fw-bold">Formulário Final</h1>
+                <p class="lead">Para alunos concluintes ou no final do curso de Psicologia</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- TCLE Section -->
+                <div class="form-section card mb-4" id="tcle-section">
+                    <div class="card-header bg-warning">
+                        <h3 class="card-title mb-0">Termo de Consentimento Livre e Esclarecido (TCLE)</h3>
+                    </div>
+                    <div class="card-body">
+                    
+                    <div class="tcle-container">
+                        <h4 class="text-center">TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO</h4>
+                        <p>Você está sendo convidado(a) a participar da pesquisa "Estudo Longitudinal sobre Propósito, Expectativas e Traços de Personalidade em Estudantes de Psicologia", desenvolvida pelo Curso de Psicologia da Faculdade Anhanguera de Feira de Santana.</p>
+                        
+                        <p><strong>Objetivo:</strong> Esta pesquisa tem como objetivo acompanhar o propósito e as expectativas dos alunos do curso de Psicologia, desde o início até a conclusão da graduação, relacionando essa trajetória com seus traços de personalidade avaliados pelo TIPI (Ten-Item Personality Inventory).</p>
+                        
+                        <p><strong>Procedimentos:</strong> Sua participação envolve o preenchimento de um questionário no início do curso e outro ao final da graduação, além da aplicação do inventário TIPI em ambos os momentos. O tempo estimado para preenchimento é de aproximadamente 15 minutos em cada etapa.</p>
+                        
+                        <p><strong>Riscos e Benefícios:</strong> Os riscos associados à sua participação são mínimos, podendo incluir eventual desconforto ao responder algumas perguntas. Como benefícios, você receberá feedback sobre seus traços de personalidade e, ao final do curso, poderá comparar sua evolução ao longo da graduação.</p>
+                        
+                        <p><strong>Confidencialidade:</strong> Suas respostas serão tratadas de forma anônima e confidencial. Os dados coletados serão utilizados apenas para fins acadêmicos e científicos. Para permitir o pareamento dos dados nos dois momentos da pesquisa, você criará um código único que somente você conhecerá.</p>
+                        
+                        <p><strong>Participação Voluntária:</strong> Sua participação é voluntária e você tem o direito de se retirar da pesquisa a qualquer momento, sem qualquer penalidade ou prejuízo.</p>
+                        
+                        <p><strong>Contato:</strong> Em caso de dúvidas sobre a pesquisa, você pode entrar em contato com a coordenação do curso pelo e-mail: coordenacao.psicologia@anhanguera.com</p>
+                        
+                        <p>Ao marcar a opção "Concordo em participar", você declara que leu e compreendeu as informações acima e concorda em participar voluntariamente desta pesquisa.</p>
+                    </div>
+                    
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" id="tcle-checkbox" required>
+                        <label class="form-check-label" for="tcle-checkbox">
+                            Concordo em participar voluntariamente desta pesquisa e autorizo a utilização dos meus dados para fins acadêmicos e científicos.
+                        </label>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="formulario-final" class="needs-validation" novalidate>
+                    <!-- Identificação Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Identificação</h3>
+                        </div>
+                        <div class="card-body">
+                        
+                        <div class="alert alert-warning">
+                            <p class="mb-0"><strong>Importante:</strong> Utilize o mesmo código único que você criou no Formulário Inicial. Isso permitirá comparar suas respostas nos dois momentos da pesquisa.</p>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="codigo" class="form-label">Código Único*</label>
+                            <input type="text" class="form-control" id="codigo" name="codigo" required>
+                            <div class="invalid-feedback">
+                                Por favor, informe seu código único.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="idade" class="form-label">Idade Atual*</label>
+                            <input type="number" class="form-control" id="idade" name="idade" min="16" max="100" required>
+                            <div class="invalid-feedback">
+                                Por favor, informe sua idade atual.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="genero" class="form-label">Gênero*</label>
+                            <select class="form-select" id="genero" name="genero" required>
+                                <option value="" selected disabled>Selecione...</option>
+                                <option value="Feminino">Feminino</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Não-binário">Não-binário</option>
+                                <option value="Prefiro não informar">Prefiro não informar</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="trabalho" class="form-label">Situação de Trabalho Atual*</label>
+                            <select class="form-select" id="trabalho" name="trabalho" required>
+                                <option value="" selected disabled>Selecione...</option>
+                                <option value="Não trabalho">Não trabalho</option>
+                                <option value="Trabalho em meio período">Trabalho em meio período</option>
+                                <option value="Trabalho em período integral">Trabalho em período integral</option>
+                                <option value="Trabalho eventualmente">Trabalho eventualmente</option>
+                                <option value="Estágio">Estágio</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trajetória e Avaliação Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Trajetória e Avaliação do Curso</h3>
+                        </div>
+                        <div class="card-body">
+                        
+                        <div class="mb-3">
+                            <label for="area_interesse_atual" class="form-label">Qual área da Psicologia mais lhe interessa atualmente?*</label>
+                            <select class="form-select" id="area_interesse_atual" name="area_interesse_atual" required>
+                                <option value="" selected disabled>Selecione...</option>
+                                <option value="Psicologia Clínica">Psicologia Clínica</option>
+                                <option value="Psicologia Organizacional">Psicologia Organizacional</option>
+                                <option value="Psicologia Escolar/Educacional">Psicologia Escolar/Educacional</option>
+                                <option value="Psicologia Social">Psicologia Social</option>
+                                <option value="Neuropsicologia">Neuropsicologia</option>
+                                <option value="Psicologia da Saúde">Psicologia da Saúde</option>
+                                <option value="Psicologia Jurídica">Psicologia Jurídica</option>
+                                <option value="Psicologia do Esporte">Psicologia do Esporte</option>
+                                <option value="Ainda não sei">Ainda não sei</option>
+                                <option value="Outra">Outra</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="mudanca_interesse" class="form-label">Seu interesse por áreas da Psicologia mudou ao longo do curso? Por quê?*</label>
+                            <textarea class="form-control" id="mudanca_interesse" name="mudanca_interesse" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, responda esta pergunta.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="expectativas_atendidas" class="form-label">Em que medida suas expectativas iniciais sobre o curso foram atendidas?*</label>
+                            <select class="form-select" id="expectativas_atendidas" name="expectativas_atendidas" required>
+                                <option value="" selected disabled>Selecione...</option>
+                                <option value="Totalmente atendidas">Totalmente atendidas</option>
+                                <option value="Parcialmente atendidas">Parcialmente atendidas</option>
+                                <option value="Pouco atendidas">Pouco atendidas</option>
+                                <option value="Não foram atendidas">Não foram atendidas</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="justificativa_expectativas" class="form-label">Justifique sua resposta anterior:*</label>
+                            <textarea class="form-control" id="justificativa_expectativas" name="justificativa_expectativas" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, responda esta pergunta.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="desafios_enfrentados" class="form-label">Quais foram os principais desafios que você enfrentou durante o curso?*</label>
+                            <textarea class="form-control" id="desafios_enfrentados" name="desafios_enfrentados" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, responda esta pergunta.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="superacao_desafios" class="form-label">Como você lidou com esses desafios?*</label>
+                            <textarea class="form-control" id="superacao_desafios" name="superacao_desafios" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, responda esta pergunta.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Propósito e Planos Section -->
+                    <div class="form-section card mb-4">
+                        <div class="card-header bg-primary text-white">
+                            <h3 class="card-title mb-0">Propósito e Planos Futuros</h3>
+                        </div>
+                        <div class="card-body">
+                        
+                        <div class="mb-3">
+                            <label for="proposito_atual" class="form-label">Qual é o seu principal propósito como psicólogo(a) atualmente?*</label>
+                            <textarea class="form-control" id="proposito_atual" name="proposito_atual" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, responda esta pergunta.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="mudanca_proposito" class="form-label">Seu propósito mudou em relação ao início do curso? Como?*</label>
+                            <textarea class="form-control" id="mudanca_proposito" name="mudanca_proposito" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, responda esta pergunta.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="planos_pos_formatura" class="form-label">Quais são seus planos imediatos após a formatura?*</label>
+                            <select class="form-select" id="planos_pos_formatura" name="planos_pos_formatura" required>
+                                <option value="" selected disabled>Selecione...</option>
+                                <option value="Iniciar carreira clínica">Iniciar carreira clínica</option>
+                                <option value="Buscar emprego em organizações">Buscar emprego em organizações</option>
+                                <option value="Fazer pós-graduação">Fazer pós-graduação</option>
+                                <option value="Fazer mestrado">Fazer mestrado</option>
+                                <option value="Tirar um tempo para decidir">Tirar um tempo para decidir</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="detalhamento_planos" class="form-label">Detalhe seus planos profissionais para os próximos cinco anos:*</label>
+                            <textarea class="form-control" id="detalhamento_planos" name="detalhamento_planos" rows="3" required></textarea>
+                            <div class="invalid-feedback">
+                                Por favor, responda esta pergunta.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TIPI Section -->
+                    <div class="form-section">
+                        <h3>Inventário de Personalidade TIPI (Ten-Item Personality Inventory)</h3>
+                        
+                        <p>Abaixo estão 10 características de personalidade que podem ou não se aplicar a você. Para cada característica, indique o quanto você concorda ou discorda que ela se aplica a você, usando a escala de 1 a 7, onde:</p>
+                        
+                        <div class="likert-scale-labels">
+                            <span>1 = Discordo totalmente</span>
+                            <span>4 = Nem concordo nem discordo</span>
+                            <span>7 = Concordo totalmente</span>
+                        </div>
+                        
+                        <p class="text-muted mb-4">Eu me vejo como:</p>
+                        
+                        <div class="likert-question">
+                            <p>1. Extrovertido(a), entusiasta</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi1" id="tipi1_1" value="1" required>
+                                    <label class="form-check-label" for="tipi1_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi1" id="tipi1_2" value="2">
+                                    <label class="form-check-label" for="tipi1_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi1" id="tipi1_3" value="3">
+                                    <label class="form-check-label" for="tipi1_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi1" id="tipi1_4" value="4">
+                                    <label class="form-check-label" for="tipi1_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi1" id="tipi1_5" value="5">
+                                    <label class="form-check-label" for="tipi1_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi1" id="tipi1_6" value="6">
+                                    <label class="form-check-label" for="tipi1_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi1" id="tipi1_7" value="7">
+                                    <label class="form-check-label" for="tipi1_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>2. Crítico(a), briguento(a)</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi2" id="tipi2_1" value="1" required>
+                                    <label class="form-check-label" for="tipi2_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi2" id="tipi2_2" value="2">
+                                    <label class="form-check-label" for="tipi2_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi2" id="tipi2_3" value="3">
+                                    <label class="form-check-label" for="tipi2_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi2" id="tipi2_4" value="4">
+                                    <label class="form-check-label" for="tipi2_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi2" id="tipi2_5" value="5">
+                                    <label class="form-check-label" for="tipi2_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi2" id="tipi2_6" value="6">
+                                    <label class="form-check-label" for="tipi2_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi2" id="tipi2_7" value="7">
+                                    <label class="form-check-label" for="tipi2_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>3. Confiável, autodisciplinado(a)</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi3" id="tipi3_1" value="1" required>
+                                    <label class="form-check-label" for="tipi3_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi3" id="tipi3_2" value="2">
+                                    <label class="form-check-label" for="tipi3_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi3" id="tipi3_3" value="3">
+                                    <label class="form-check-label" for="tipi3_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi3" id="tipi3_4" value="4">
+                                    <label class="form-check-label" for="tipi3_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi3" id="tipi3_5" value="5">
+                                    <label class="form-check-label" for="tipi3_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi3" id="tipi3_6" value="6">
+                                    <label class="form-check-label" for="tipi3_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi3" id="tipi3_7" value="7">
+                                    <label class="form-check-label" for="tipi3_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>4. Ansioso(a), facilmente irritável</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi4" id="tipi4_1" value="1" required>
+                                    <label class="form-check-label" for="tipi4_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi4" id="tipi4_2" value="2">
+                                    <label class="form-check-label" for="tipi4_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi4" id="tipi4_3" value="3">
+                                    <label class="form-check-label" for="tipi4_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi4" id="tipi4_4" value="4">
+                                    <label class="form-check-label" for="tipi4_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi4" id="tipi4_5" value="5">
+                                    <label class="form-check-label" for="tipi4_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi4" id="tipi4_6" value="6">
+                                    <label class="form-check-label" for="tipi4_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi4" id="tipi4_7" value="7">
+                                    <label class="form-check-label" for="tipi4_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>5. Aberto(a) a novas experiências, complexo(a)</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi5" id="tipi5_1" value="1" required>
+                                    <label class="form-check-label" for="tipi5_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi5" id="tipi5_2" value="2">
+                                    <label class="form-check-label" for="tipi5_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi5" id="tipi5_3" value="3">
+                                    <label class="form-check-label" for="tipi5_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi5" id="tipi5_4" value="4">
+                                    <label class="form-check-label" for="tipi5_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi5" id="tipi5_5" value="5">
+                                    <label class="form-check-label" for="tipi5_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi5" id="tipi5_6" value="6">
+                                    <label class="form-check-label" for="tipi5_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi5" id="tipi5_7" value="7">
+                                    <label class="form-check-label" for="tipi5_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>6. Reservado(a), quieto(a)</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi6" id="tipi6_1" value="1" required>
+                                    <label class="form-check-label" for="tipi6_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi6" id="tipi6_2" value="2">
+                                    <label class="form-check-label" for="tipi6_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi6" id="tipi6_3" value="3">
+                                    <label class="form-check-label" for="tipi6_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi6" id="tipi6_4" value="4">
+                                    <label class="form-check-label" for="tipi6_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi6" id="tipi6_5" value="5">
+                                    <label class="form-check-label" for="tipi6_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi6" id="tipi6_6" value="6">
+                                    <label class="form-check-label" for="tipi6_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi6" id="tipi6_7" value="7">
+                                    <label class="form-check-label" for="tipi6_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>7. Simpático(a), caloroso(a)</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi7" id="tipi7_1" value="1" required>
+                                    <label class="form-check-label" for="tipi7_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi7" id="tipi7_2" value="2">
+                                    <label class="form-check-label" for="tipi7_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi7" id="tipi7_3" value="3">
+                                    <label class="form-check-label" for="tipi7_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi7" id="tipi7_4" value="4">
+                                    <label class="form-check-label" for="tipi7_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi7" id="tipi7_5" value="5">
+                                    <label class="form-check-label" for="tipi7_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi7" id="tipi7_6" value="6">
+                                    <label class="form-check-label" for="tipi7_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi7" id="tipi7_7" value="7">
+                                    <label class="form-check-label" for="tipi7_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>8. Desorganizado(a), descuidado(a)</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi8" id="tipi8_1" value="1" required>
+                                    <label class="form-check-label" for="tipi8_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi8" id="tipi8_2" value="2">
+                                    <label class="form-check-label" for="tipi8_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi8" id="tipi8_3" value="3">
+                                    <label class="form-check-label" for="tipi8_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi8" id="tipi8_4" value="4">
+                                    <label class="form-check-label" for="tipi8_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi8" id="tipi8_5" value="5">
+                                    <label class="form-check-label" for="tipi8_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi8" id="tipi8_6" value="6">
+                                    <label class="form-check-label" for="tipi8_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi8" id="tipi8_7" value="7">
+                                    <label class="form-check-label" for="tipi8_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>9. Calmo(a), emocionalmente estável</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi9" id="tipi9_1" value="1" required>
+                                    <label class="form-check-label" for="tipi9_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi9" id="tipi9_2" value="2">
+                                    <label class="form-check-label" for="tipi9_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi9" id="tipi9_3" value="3">
+                                    <label class="form-check-label" for="tipi9_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi9" id="tipi9_4" value="4">
+                                    <label class="form-check-label" for="tipi9_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi9" id="tipi9_5" value="5">
+                                    <label class="form-check-label" for="tipi9_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi9" id="tipi9_6" value="6">
+                                    <label class="form-check-label" for="tipi9_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi9" id="tipi9_7" value="7">
+                                    <label class="form-check-label" for="tipi9_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                        
+                        <div class="likert-question">
+                            <p>10. Convencional, pouco criativo(a)</p>
+                            <div class="likert-scale">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi10" id="tipi10_1" value="1" required>
+                                    <label class="form-check-label" for="tipi10_1">1</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi10" id="tipi10_2" value="2">
+                                    <label class="form-check-label" for="tipi10_2">2</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi10" id="tipi10_3" value="3">
+                                    <label class="form-check-label" for="tipi10_3">3</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi10" id="tipi10_4" value="4">
+                                    <label class="form-check-label" for="tipi10_4">4</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi10" id="tipi10_5" value="5">
+                                    <label class="form-check-label" for="tipi10_5">5</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi10" id="tipi10_6" value="6">
+                                    <label class="form-check-label" for="tipi10_6">6</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="tipi10" id="tipi10_7" value="7">
+                                    <label class="form-check-label" for="tipi10_7">7</label>
+                                </div>
+                            </div>
+                            <div class="invalid-feedback">
+                                Por favor, selecione uma opção.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="d-grid gap-2 col-md-6 mx-auto my-5">
+                        <button class="btn btn-primary btn-lg" type="submit">Enviar Formulário</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Pesquisa Longitudinal - Curso de Psicologia</h5>
+                    <p>Faculdade Anhanguera de Feira de Santana</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Contato</h5>
+                    <p>Em caso de dúvidas, entre em contato com a coordenação do curso</p>
+                    <p>Email: coordenacao.psicologia@anhanguera.com</p>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>&copy; 2025 Faculdade Anhanguera de Feira de Santana. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar TCLE antes de permitir preenchimento do formulário
+            const tcleCheckbox = document.getElementById('tcle-checkbox');
+            const form = document.getElementById('formulario-final');
+            const formElements = form.querySelectorAll('input, select, textarea, button');
+            
+            // Inicialmente desabilitar o formulário
+            formElements.forEach(element => {
+                if (element !== tcleCheckbox) {
+                    element.disabled = true;
+                }
+            });
+            
+            // Habilitar/desabilitar formulário baseado no TCLE
+            tcleCheckbox.addEventListener('change', function() {
+                formElements.forEach(element => {
+                    if (element !== tcleCheckbox) {
+                        element.disabled = !this.checked;
+                    }
+                });
+            });
+            
+            // Validação do formulário
+            form.addEventListener('submit', function(event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    event.preventDefault();
+                    
+                    // Coletar dados do formulário
+                    const formData = new FormData(form);
+                    const formDataObj = {};
+                    formData.forEach((value, key) => {
+                        formDataObj[key] = value;
+                    });
+                    
+                    // Calcular escores TIPI
+                    const tipiScores = calculateTIPIScores(formDataObj);
+                    
+                    // Adicionar escores TIPI ao objeto de dados
+                    Object.assign(formDataObj, tipiScores);
+                    
+                    // Enviar dados para o servidor
+                    fetch('/api/formulario-final', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(formDataObj)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Verificar se existe formulário inicial para este código
+                            fetch(`/api/formulario/${formDataObj.codigo}/inicial`)
+                                .then(response => response.json())
+                                .then(initialData => {
+                                    if (initialData.success) {
+                                        // Se existir formulário inicial, redirecionar para resultados comparativos
+                                        window.location.href = `resultados_comparativos.html?codigo=${formDataObj.codigo}`;
+                                    } else {
+                                        // Se não existir, redirecionar para resultados individuais
+                                        window.location.href = `resultados_tipi.html?codigo=${formDataObj.codigo}&tipo=final`;
+                                    }
+                                })
+                                .catch(error => {
+                                    // Em caso de erro, redirecionar para resultados individuais
+                                    window.location.href = `resultados_tipi.html?codigo=${formDataObj.codigo}&tipo=final`;
+                                });
+                        } else {
+                            alert('Erro ao salvar os dados: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Erro:', error);
+                        alert('Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.');
+                    });
+                }
+                
+                form.classList.add('was-validated');
+            });
+            
+            // Função para calcular os escores do TIPI
+            function calculateTIPIScores(data) {
+                // Converter valores para números
+                const tipi1 = parseInt(data.tipi1);
+                const tipi2 = parseInt(data.tipi2);
+                const tipi3 = parseInt(data.tipi3);
+                const tipi4 = parseInt(data.tipi4);
+                const tipi5 = parseInt(data.tipi5);
+                const tipi6 = parseInt(data.tipi6);
+                const tipi7 = parseInt(data.tipi7);
+                const tipi8 = parseInt(data.tipi8);
+                const tipi9 = parseInt(data.tipi9);
+                const tipi10 = parseInt(data.tipi10);
+                
+                // Calcular escores (alguns itens são invertidos)
+                const extroversao = (tipi1 + (8 - tipi6)) / 2;
+                const amabilidade = ((8 - tipi2) + tipi7) / 2;
+                const conscienciosidade = (tipi3 + (8 - tipi8)) / 2;
+                const estabilidade_emocional = ((8 - tipi4) + tipi9) / 2;
+                const abertura = (tipi5 + (8 - tipi10)) / 2;
+                
+                return {
+                    extroversao,
+                    amabilidade,
+                    conscienciosidade,
+                    estabilidade_emocional,
+                    abertura
+                };
+            }
+        });
+    </script>
+</body>
+</html>
